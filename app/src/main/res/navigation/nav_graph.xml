@@ -11,11 +11,14 @@
             android:label="@string/main_fragment_label"
             tools:layout="@layout/fragment_main_screen">
 
+            <!--these actions move to multiple frames-->
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
                 app:destination="@id/CurrentDayFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_YearlyViewFragment"
                 app:destination="@id/YearlyViewFragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_HabitzScreenFragment"
+                app:destination="@id/HabitzScreenFragment"/>
     </fragment>
 
 
@@ -32,6 +35,14 @@
         android:name="com.example.mytestapplication2.YearlyViewFragment"
         android:label="@string/yearly_view_fragment_label"
         tools:layout="@layout/fragment_yearly_view">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/HabitzScreenFragment"
+        android:name="com.example.mytestapplication2.HabitzScreenFragment"
+        android:label="@string/habitz_view_fragment_label"
+        tools:layout="@layout/fragment_habitz_screen">
 
     </fragment>
 
