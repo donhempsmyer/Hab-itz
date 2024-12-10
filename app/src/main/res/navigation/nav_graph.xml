@@ -14,7 +14,11 @@
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
                 app:destination="@id/CurrentDayFragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_YearlyViewFragment"
+                app:destination="@id/YearlyViewFragment"/>
     </fragment>
+
+
     <fragment
             android:id="@+id/CurrentDayFragment"
             android:name="com.example.mytestapplication2.CurrentDayFragment"
@@ -22,4 +26,14 @@
             tools:layout="@layout/fragment_current_day">
 
     </fragment>
+
+    <fragment
+        android:id="@+id/YearlyViewFragment"
+        android:name="com.example.mytestapplication2.YearlyViewFragment"
+        android:label="@string/yearly_view_fragment_label"
+        tools:layout="@layout/fragment_yearly_view">
+
+    </fragment>
+
+
 </navigation>
