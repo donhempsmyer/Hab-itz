@@ -8,6 +8,7 @@
     <string name="current_day_fragment_label">Current Day Fragment</string>
     <string name="yearly_view_fragment_label">Yearly View Fragment</string>
     <string name="habitz_view_fragment_label">Habitz View Fragment</string>
+    <string name="login_fragment_label">Login Screen Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -24,6 +25,12 @@
 
     //habits view text
     <string name="habits_view">habits view page text</string>
+
+    //login text
+    <string name="login_text">Login</string>
+    <string name="login_icon_description">Habitz Small Icon</string>
+    <string name="user_name">User Name</string>
+    <string name="pass_word">Password</string>
 
 
 </resources>
