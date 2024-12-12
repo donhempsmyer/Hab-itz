@@ -44,6 +44,31 @@
         android:label="@string/habitz_view_fragment_label"
         tools:layout="@layout/fragment_habitz_screen">
 
+        <action android:id="@+id/action_HabitzScreenFragment_to_createHabitScreen"
+                app:destination="@id/createHabitScreen"/>
+        <action android:id="@+id/action_HabitzScreenFragment_to_updateHabitScreen"
+                app:destination="@id/updateHabitScreen"/>
+    </fragment>
+
+    <fragment android:id="@+id/createHabitScreen"
+              android:name="com.example.mytestapplication2.CreateHabitScreen"
+              android:label="createHabit"
+              tools:layout="@layout/fragment_create_habit_screen">
+
+        <action android:id="@+id/action_createHabitScreen_to_HabitzScreenFragment"
+                app:destination="@id/HabitzScreenFragment"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/updateHabitScreen"
+            android:name="com.example.mytestapplication2.UpdateHabitScreen"
+            android:label="updateHabit"
+            tools:layout="@layout/fragment_update_habit_screen">
+
+        <action android:id="@+id/action_updateHabitScreen_to_HabitzScreenFragment"
+                app:destination="@id/HabitzScreenFragment"/>
+
     </fragment>
 
 
