@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/HabitzScreenFragment"
-        android:name="com.example.mytestapplication2.HabitzScreenFragment"
+        android:name="com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment"
         android:label="@string/habitz_view_fragment_label"
         tools:layout="@layout/fragment_habitz_screen">
 
@@ -51,7 +51,7 @@
     </fragment>
 
     <fragment android:id="@+id/createHabitScreen"
-              android:name="com.example.mytestapplication2.CreateHabitScreen"
+              android:name="com.example.mytestapplication2.ui.fragments.createhabit.CreateHabitScreen"
               android:label="createHabit"
               tools:layout="@layout/fragment_create_habit_screen">
 
@@ -62,7 +62,7 @@
 
     <fragment
             android:id="@+id/updateHabitScreen"
-            android:name="com.example.mytestapplication2.UpdateHabitScreen"
+            android:name="com.example.mytestapplication2.ui.fragments.updatehabit.UpdateHabitScreen"
             android:label="updateHabit"
             tools:layout="@layout/fragment_update_habit_screen">
 
