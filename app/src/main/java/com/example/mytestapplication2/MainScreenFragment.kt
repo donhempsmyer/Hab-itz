@@ -30,7 +30,12 @@ class MainScreenFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        binding.scheduleBtn.setOnClickListener {
+            findNavController().navigate(R.id.CurrentDayFragment)
+        }
+        binding.buttonGus.setOnClickListener {
+            findNavController().navigate(R.id.HabitzScreenFragment)
+        }
     }
 
     override fun onDestroyView() {

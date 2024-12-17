@@ -1,12 +1,13 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.androidapplication)
+    alias(libs.plugins.kotlinandroid)
+    id ("kotlin-kapt")
+    //alias(libs.plugins.kotlinksp) apply false
 }
 
 android {
     namespace = "com.example.mytestapplication2"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.mytestapplication2"
@@ -18,6 +19,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -28,12 +31,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
         viewBinding = true
     }
+    buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
 }
 
 dependencies {
@@ -52,7 +57,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
+
+    annotationProcessor(libs.androidx.room.compiler)
+
+    //kapt("groupId:artifactId:version")
+
     kapt(libs.androidx.room.compiler)
+
+    implementation(libs.androidx.room.ktx)
+
     androidTestImplementation(libs.androidx.room.testing)
 }
