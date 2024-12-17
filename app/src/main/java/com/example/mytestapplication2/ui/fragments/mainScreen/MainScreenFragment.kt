@@ -1,18 +1,18 @@
-package com.example.mytestapplication2
+package com.example.mytestapplication2.ui.fragments.mainScreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.mytestapplication2.databinding.FragmentCurrentDayBinding
+import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class CurrentDayFragment : Fragment() {
+class MainScreenFragment : Fragment() {
 
-    private var _binding: FragmentCurrentDayBinding? = null
+    private var _binding: FragmentMainScreenBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,13 +23,12 @@ class CurrentDayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentCurrentDayBinding.inflate(inflater, container, false)
+        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
     }
 

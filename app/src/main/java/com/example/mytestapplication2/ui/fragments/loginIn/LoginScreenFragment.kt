@@ -1,4 +1,4 @@
-package com.example.mytestapplication2
+package com.example.mytestapplication2.ui.fragments.loginIn
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import com.example.mytestapplication2.R
 
 
 class LoginScreenFragment : Fragment() {
