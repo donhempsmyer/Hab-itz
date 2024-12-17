@@ -2,5 +2,5 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="HabGreen">#00ce93</color>
+    <color name="red">#EF5350</color>
 </resources>
