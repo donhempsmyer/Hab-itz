@@ -17,6 +17,8 @@ lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 roomRuntime = "2.5.0"
 swiperefreshlayout = "1.1.0"
+firebaseInappmessagingVersion = "21.0.1"
+mediarouterVersion = "1.7.0"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtxVersion" }
@@ -38,6 +40,8 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation", vers
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout"}
+firebase-inappmessaging = { group = "com.google.firebase", name = "firebase-inappmessaging", version.ref = "firebaseInappmessagingVersion" }
+androidx-mediarouter = { group = "androidx.mediarouter", name = "mediarouter", version.ref = "mediarouterVersion" }
 
 
 [plugins]

@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/LoginScreenFragment">
+            app:startDestination="@id/MainScreenFragment">
 
     <fragment
             android:id="@+id/MainScreenFragment"
@@ -19,6 +19,8 @@
                 app:destination="@id/YearlyViewFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_HabitzScreenFragment"
                 app:destination="@id/HabitzScreenFragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
+                app:destination="@id/CurrentDayFragment"/>
     </fragment>
 
 

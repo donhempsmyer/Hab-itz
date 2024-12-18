@@ -32,5 +32,11 @@
     <string name="user_name">User Name</string>
     <string name="pass_word">Password</string>
 
+    //hamburger icon nav
+    <string name="nav_to_main_screen_fragment">Home</string>
+    <string name="nav_to_habits_fragment">Habitz</string>
+    <string name="nav_to_journal_fragment">Journal</string>
+    <string name="nav_to_scheduler_fragment">Schedule</string>
+
 
 </resources>

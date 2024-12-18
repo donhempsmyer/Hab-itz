@@ -33,77 +33,73 @@
             app:layout_constraintHorizontal_bias="0.49" app:layout_constraintVertical_bias="0.13">
 
 
-        <TextView
-                android:text="@string/login_text"
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="45sp"
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:background="#20156b"
-                android:textColor="#00ce93"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:id="@+id/login_text"/>
-
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp">
+                android:paddingBottom="8dp"
+                android:text="Continue"
+                android:id="@+id/continueBtn"/>
 
-            <ImageView
-                    android:src="@drawable/person_24dp"
-                    android:layout_width="40dp"
-                    android:layout_height="45dp"
-                    android:id="@+id/person_icon"
-                    android:layout_weight="1"/>
+<!--        <LinearLayout-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="8dp"-->
+<!--                android:paddingBottom="8dp">-->
 
-            <EditText
-                    android:layout_gravity="left"
-                    android:layout_width="309dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/user_name"
-                    android:text="@string/user_name"
-                    android:textAlignment="center"
-                    android:background="@drawable/textbox_border"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+<!--            <ImageView-->
+<!--                    android:src="@drawable/person_24dp"-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="45dp"-->
+<!--                    android:id="@+id/person_icon"-->
+<!--                    android:layout_weight="1"/>-->
 
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp">
-
-
-            <ImageView
-                    android:src="@drawable/lock_24dp"
-                    android:layout_width="49dp"
-                    android:layout_height="45dp"
-                    android:id="@+id/lock_icon"
-                    android:layout_weight="1"/>
+<!--            <EditText-->
+<!--                    android:layout_gravity="left"-->
+<!--                    android:layout_width="309dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:id="@+id/user_name"-->
+<!--                    android:text="@string/user_name"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:background="@drawable/textbox_border"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"/>-->
 
 
-            <EditText
-                    android:layout_gravity="left"
-                    android:layout_width="309dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/user_password"
-                    android:text="@string/pass_word"
-                    android:textAlignment="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:background="@drawable/textbox_border"
-                    android:layout_weight="1"/>
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="8dp"-->
+<!--                android:paddingBottom="8dp">-->
 
 
-        </LinearLayout>
+<!--            <ImageView-->
+<!--                    android:src="@drawable/lock_24dp"-->
+<!--                    android:layout_width="49dp"-->
+<!--                    android:layout_height="45dp"-->
+<!--                    android:id="@+id/lock_icon"-->
+<!--                    android:layout_weight="1"/>-->
+
+
+<!--            <EditText-->
+<!--                    android:layout_gravity="left"-->
+<!--                    android:layout_width="309dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:id="@+id/user_password"-->
+<!--                    android:text="@string/pass_word"-->
+<!--                    android:textAlignment="center"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    android:background="@drawable/textbox_border"-->
+<!--                    android:layout_weight="1"/>-->
+
+
+<!--        </LinearLayout>-->
 
 
     </LinearLayout>

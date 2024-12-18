@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#EF5350</color>
+    <color name="habits_blue">#20156B</color>
+    <color name="habits_green">#00CE93</color>
 </resources>
