@@ -1,15 +1,82 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Gradle files
+.gradle/
+build/
+**/build/
+!gradle-wrapper.jar
+
+# Local configuration file (SDK location, etc.)
 local.properties
+
+# IntelliJ/Android Studio specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+output.json
+
+# Android Profiling
+*.hprof
+
+# Log files
+*.log
+
+# Android-specific cache files
+*.apk
+*.ap_
+*.dex
+
+# Generated files
+generated/
+out/
+captures/
+
+# Files for the build process
+.externalNativeBuild/
+.cxx/
+
+# Temporary files
+*.swp
+*.temp
+*.tmp
+*.bak
+*.orig
+
+# Test results
+**/build/test-results/
+**/build/test-results-debug/
+**/build/test-results-release/
+
+# ProGuard logs
+proguard/
+proguard-rules.pro~
+
+# Keystore files (private, should not be shared)
+*.keystore
+*.jks
+
+# Crashlytics and Firebase files
+crashlytics.properties
+fabric.properties
+google-services.json
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# NDK
+.obj/
+*.so
+
+# Miscellaneous
+*.DS_Store
+Thumbs.db
+.DS_Store
+../../Downloads/desktop.ini
+
+# User-specific files
+*.sublime-workspace
+*.code-workspace
+.vscode/
