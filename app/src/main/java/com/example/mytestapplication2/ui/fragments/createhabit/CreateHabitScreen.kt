@@ -37,6 +37,8 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        _binding = FragmentCreateHabitScreenBinding.bind(view)
+
         habitViewModel = ViewModelProvider(this).get(HabitViewModel::class.java)
 
         binding.btnConfirm.setOnClickListener {
@@ -61,7 +63,7 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
     }
 
     override fun onDateSet(view: DatePicker?, yearX: Int, monthX: Int, dayX: Int) {
-        cleanDate = Calculations.cleanDate(dayX, yearX, monthX)
+        cleanDate = Calculations.cleanDate(dayX, monthX + 1, yearX)
         binding.tvDateSelected.text = "Date: $cleanDate"
     }
 

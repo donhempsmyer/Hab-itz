@@ -7,7 +7,7 @@
     <string name="main_fragment_label">Main Fragment</string>
     <string name="current_day_fragment_label">Current Day Fragment</string>
     <string name="yearly_view_fragment_label">Yearly View Fragment</string>
-    <string name="habitz_view_fragment_label">Habitz View Fragment</string>
+    <string name="habitz_view_fragment_label">Habitz List</string>
     <string name="login_fragment_label">Login Screen Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
