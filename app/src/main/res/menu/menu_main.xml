@@ -4,9 +4,5 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.mytestapplication2.MainActivity">
 
-    <item android:id="@+id/nav_delete"
-          android:icon="@drawable/ic_delete"
-          android:title="Delete everything"
-          app:showAsAction="withText" />
 
 </menu>
