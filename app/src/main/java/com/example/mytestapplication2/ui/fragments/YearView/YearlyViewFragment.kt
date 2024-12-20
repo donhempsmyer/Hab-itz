@@ -27,11 +27,6 @@ class YearlyViewFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_yearly_view, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

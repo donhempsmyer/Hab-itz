@@ -39,6 +39,7 @@ android {
     kapt {
         correctErrorTypes = true
     }
+    buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
 }
 
 dependencies {
