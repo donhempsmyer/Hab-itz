@@ -7,7 +7,7 @@
              android:layout_height="match_parent"
              tools:context=".ui.fragments.YearView.YearlyViewFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
             android:id="@+id/yearly_screen_tv"
             android:layout_width="match_parent"

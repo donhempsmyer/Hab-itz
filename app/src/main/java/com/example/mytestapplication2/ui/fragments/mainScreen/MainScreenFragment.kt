@@ -66,31 +66,31 @@ class MainScreenFragment : Fragment() {
         return binding.root
     }
 
-    // Function to replace the current fragment in the container
-    //I(james) need a better understanding of this/ need more research
-    private fun addFragmentToContainer(fragment: Fragment) {
-        try {
-            // Log to check if the function is being called
-            //error checking via logcat
-            Log.d("MainScreenFragment", "Replacing fragment with ${fragment::class.java.simpleName}")
-
-            // Check if the fragment container exists
-            val fragmentContainer = view?.findViewById<View>(R.id.fragment_container)
-            if (fragmentContainer == null) {
-                //error checking
-                Log.e("MainScreenFragment", "Fragment container is null!")
-                return
-            }
-
-            parentFragmentManager.beginTransaction()  // Starts the transaction
-                .replace(R.id.fragment_container, fragment)  // Replaces the fragment
-                .addToBackStack(null)  //Adds the transaction to back stack
-                .commit()  // Commit the transaction to apply the changes
-        } catch (e: Exception) {
-            // Logs any errors that occur during the fragment transaction
-            Log.e("MainScreenFragment", "Error during fragment transaction: ${e.localizedMessage}")
-        }
-    }
+//    // Function to replace the current fragment in the container
+//    //I(james) need a better understanding of this/ need more research
+//    private fun addFragmentToContainer(fragment: Fragment) {
+//        try {
+//            // Log to check if the function is being called
+//            //error checking via logcat
+//            Log.d("MainScreenFragment", "Replacing fragment with ${fragment::class.java.simpleName}")
+//
+//            // Check if the fragment container exists
+//            val fragmentContainer = view?.findViewById<View>(R.id.fragment_container)
+//            if (fragmentContainer == null) {
+//                //error checking
+//                Log.e("MainScreenFragment", "Fragment container is null!")
+//                return
+//            }
+//
+//            parentFragmentManager.beginTransaction()  // Starts the transaction
+//                .replace(R.id.fragment_container, fragment)  // Replaces the fragment
+//                .addToBackStack(null)  //Adds the transaction to back stack
+//                .commit()  // Commit the transaction to apply the changes
+//        } catch (e: Exception) {
+//            // Logs any errors that occur during the fragment transaction
+//            Log.e("MainScreenFragment", "Error during fragment transaction: ${e.localizedMessage}")
+//        }
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
