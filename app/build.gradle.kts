@@ -32,14 +32,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     kapt {
         correctErrorTypes = true
     }
-    buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
 }
 
 dependencies {
