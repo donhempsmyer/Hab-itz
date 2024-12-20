@@ -1,4 +1,4 @@
-package com.example.mytestapplication2
+package com.example.mytestapplication2.ui.fragments.currentDay
 
 import android.os.Bundle
 import android.view.LayoutInflater
