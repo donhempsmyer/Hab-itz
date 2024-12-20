@@ -35,6 +35,7 @@ class MainScreenFragment : Fragment() {
         // Sets the click listener for the hamburger icon
         hamburgerIcon.setOnClickListener { view ->
             // Creates the popup menu
+
             val hamburgerPopupMenu = PopupMenu(requireContext(), hamburgerIcon)
             hamburgerPopupMenu.menuInflater.inflate(R.menu.hamburger_menu, hamburgerPopupMenu.menu)
 
