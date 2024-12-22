@@ -1,10 +1,14 @@
 package com.example.mytestapplication2.ui.fragments.currentDay
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.mytestapplication2.databinding.FragmentCurrentDayBinding
 
 /**
@@ -30,6 +34,38 @@ class CurrentDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val listView: ListView = binding.hourList
+
+
+        val semiHourlyList: ArrayList<String> = ArrayList<String>()
+        semiHourlyList.add("12:00:00 AM")
+        semiHourlyList.add("12:30:00 AM")
+
+        var hourVar = 1
+        while (hourVar < 12) {
+            semiHourlyList.add("$hourVar:00:00 AM")
+            semiHourlyList.add("$hourVar:30:00 AM")
+            hourVar ++
+
+        }
+
+        semiHourlyList.add("12:00:00 PM")
+        semiHourlyList.add("12:30:00 PM")
+        hourVar=1
+        while (hourVar < 12) {
+            semiHourlyList.add("$hourVar:00:00 PM")
+            semiHourlyList.add("$hourVar:30:00 PM")
+            hourVar ++
+
+        }
+
+        val adapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, semiHourlyList)
+        listView.adapter = adapter
+
+        listView.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
+            Toast.makeText(requireContext(), "You clicked ${semiHourlyList.get(position)}", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

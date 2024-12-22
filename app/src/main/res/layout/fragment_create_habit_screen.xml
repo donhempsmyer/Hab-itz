@@ -9,15 +9,16 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
-
+            android:layout_centerInParent="true"
+            tools:ignore="UselessParent">
 
         <LinearLayout
                 android:id="@+id/ll_textviews"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="ScrollViewSize">
 
             <EditText
                     android:id="@+id/et_habitTitle"
@@ -28,7 +29,8 @@
                     android:hint="Habit title"
                     android:inputType="text"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="Autofill,HardcodedText"/>
 
             <EditText
                     android:id="@+id/et_habitDescription"
@@ -39,10 +41,11 @@
                     android:hint="Give it a short description"
                     android:inputType="textShortMessage"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="Autofill,HardcodedText"/>
 
             <Button
-                    android:id="@+id/btn_pickDate"
+                    android:id="@+id/btnPickDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -51,18 +54,20 @@
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:text="Pick a date"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    tools:ignore="HardcodedText"/>
 
             <TextView
-                    android:id="@+id/tv_dateSelected"
+                    android:id="@+id/tvDateSelected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Date: (not selected)"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText"/>
 
             <Button
-                    android:id="@+id/btn_pickTime"
+                    android:id="@+id/btnPickTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -71,18 +76,20 @@
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:text="Pick a time"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    tools:ignore="HardcodedText"/>
 
             <TextView
-                    android:id="@+id/tv_timeSelected"
+                    android:id="@+id/tvTimeSelected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Time: (not selected)"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText"/>
 
             <Button
-                    android:id="@+id/btn_confirm"
+                    android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -91,7 +98,8 @@
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:text="Confirm"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    tools:ignore="HardcodedText"/>
 
         </LinearLayout>
 
