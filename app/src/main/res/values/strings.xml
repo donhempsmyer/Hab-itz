@@ -127,6 +127,9 @@
     <string name="nav_to_habits_fragment">Habitz</string>
     <string name="nav_to_journal_fragment">Journal</string>
     <string name="nav_to_scheduler_fragment">Schedule</string>
+    <string name="journal_item_book_icon">Journal item book icon</string>
+    <string name="journal_item_title">Journal item title</string>
+    <string name="journal_entry_hint">Enter your journal entry here</string>
 
 
 </resources>

@@ -21,6 +21,8 @@
                 app:destination="@id/HabitzScreenFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_JournalFragment"
+                app:destination="@id/JournalFragment"/>
     </fragment>
 
 
@@ -73,6 +75,13 @@
 
     </fragment>
 
+    <fragment
+            android:id="@+id/JournalFragment"
+            android:name="com.example.mytestapplication2.journal.JournalFragment"
+            android:label="Journal"
+            tools:layout="@layout/fragment_journal_list">
+
+    </fragment>
 
     <fragment
         android:id="@+id/LoginScreenFragment"

@@ -10,16 +10,37 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.journal.placeholder.PlaceholderContent
+import com.example.mytestapplication2.journal.JournalData
 
 /**
  * A fragment representing a list of Items.
  */
 class JournalFragment : Fragment() {
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var JournalDataList: ArrayList<JournalData>
+    lateinit var imageList: Array<Int>
+    lateinit var titleList: Array<String>
+
     private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        imageList = arrayOf(
+            R.drawable.book_icon
+        )
+
+        titleList = arrayOf(
+            "Journal Entry"
+        )
+
+        //recyclerView = findViewById(R.id.recyclerView)
+        //recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        JournalDataList = arrayListOf<JournalData>()
+        getData()
 
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
@@ -39,10 +60,17 @@ class JournalFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = JournalRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                recyclerView.adapter = JournalRecyclerViewAdapter(JournalDataList)
             }
         }
         return view
+    }
+
+    private fun getData() {
+        for (i in imageList.indices) {
+            val journalData = JournalData(imageList[i], titleList[i])
+            JournalDataList.add(journalData)
+        }
     }
 
     companion object {
