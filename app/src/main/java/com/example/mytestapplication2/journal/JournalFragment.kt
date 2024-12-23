@@ -2,30 +2,36 @@ package com.example.mytestapplication2.journal
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mytestapplication2.R
-import com.example.mytestapplication2.journal.placeholder.PlaceholderContent
-import com.example.mytestapplication2.journal.JournalData
+import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
 
-/**
- * A fragment representing a list of Items.
- */
 class JournalFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var JournalDataList: ArrayList<JournalData>
+    private var _binding: FragmentJournalRecyclerBinding? = null
+    // This property is only valid between onCreateView and onDestroyView.
+    private val binding get() = _binding!!
+
+    //private lateinit var recyclerView: RecyclerView
     lateinit var imageList: Array<Int>
     lateinit var titleList: Array<String>
 
-    private var columnCount = 1
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentJournalRecyclerBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        val journalItemList = ArrayList<JournalItemData>()
+
+        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 1", "Today"))
+        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 2", "12-22-2024"))
+        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 3", "12-20-2024"))
 
         imageList = arrayOf(
             R.drawable.book_icon
@@ -35,56 +41,18 @@ class JournalFragment : Fragment() {
             "Journal Entry"
         )
 
-        //recyclerView = findViewById(R.id.recyclerView)
-        //recyclerView.layoutManager = LinearLayoutManager(this)
+        val recyclerView = binding.journalRecycler
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
 
-        JournalDataList = arrayListOf<JournalData>()
-        getData()
-
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_journal_list, container, false)
-
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                recyclerView.adapter = JournalRecyclerViewAdapter(JournalDataList)
-            }
-        }
+        recyclerView.adapter = JournalRecyclerAdapter(journalItemList)
+
         return view
     }
 
-    private fun getData() {
-        for (i in imageList.indices) {
-            val journalData = JournalData(imageList[i], titleList[i])
-            JournalDataList.add(journalData)
-        }
-    }
-
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            JournalFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
