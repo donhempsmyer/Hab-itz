@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -8,19 +8,35 @@
         android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
+        <!-- AppBarLayout containing the MaterialToolbar -->
         <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:fitsSystemWindows="true"
-        >
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <!-- MaterialToolbar for the app bar -->
+                <!-- app:navigationIcon isn't working here as well it shows but
+                will not show when run I think the only fix to this is to make a custom toolbar-->
                 <com.google.android.material.appbar.MaterialToolbar
                         android:id="@+id/toolbar"
+                        app:navigationIcon="@drawable/hamburger_icon"
+                        app:title="Habitz"
+                        app:titleCentered="true"
+                        app:titleTextColor="@color/habits_green"
+                        android:background="@color/habits_blue"
                         android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"/>
+                        android:layout_height="?attr/actionBarSize">
 
-        </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_main"/>
+        </com.google.android.material.appbar.MaterialToolbar>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Your main content layout (content_main) -->
+<include layout="@layout/content_main"
+         app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>

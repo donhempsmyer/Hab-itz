@@ -6,44 +6,44 @@
             android:layout_height="match_parent"
             android:padding="16dp">
 
-    <!-- Hamburger icon -->
-    <ImageView
-            android:id="@+id/hamburger_icon"
-            android:src="@drawable/hamburgericon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--    &lt;!&ndash; Hamburger icon &ndash;&gt;-->
+<!--    <ImageView-->
+<!--            android:id="@+id/hamburger_icon"-->
+<!--            android:src="@drawable/hamburgericon"-->
+<!--            android:layout_width="45dp"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
 
-    <TextView
-            android:id="@+id/textview_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/main_page"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
-            app:layout_constraintVertical_bias="0.549"/>
+<!--    <TextView-->
+<!--            android:id="@+id/textview_first"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="@string/main_page"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.444"-->
+<!--            app:layout_constraintVertical_bias="0.549"/>-->
 
 
-    <!--  container for fragments  -->
-    <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+<!--    &lt;!&ndash;  container for fragments  &ndash;&gt;-->
+<!--    <FrameLayout-->
+<!--            android:id="@+id/fragment_container"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent">-->
 
 
 
-    </FrameLayout>
+<!--    </FrameLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
