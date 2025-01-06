@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/LoginScreenFragment">
+            app:startDestination="@id/MainScreenFragment">
 
     <fragment
             android:id="@+id/MainScreenFragment"
@@ -34,6 +34,8 @@
                 app:destination="@id/MainScreenFragment"/>
         <action android:id="@+id/action_CurrentDayFragment_to_YearlyViewFragment"
                 app:destination="@id/YearlyViewFragment"/>
+        <action android:id="@+id/action_CurrentDayFragment_to_HabitzScreenFragment"
+                app:destination="@id/HabitzScreenFragment"/>
     </fragment>
 
     <fragment
@@ -90,13 +92,7 @@
     </fragment>
 
 
-    <fragment
-        android:id="@+id/LoginScreenFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.loginIn.LoginScreenFragment"
-        tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_LoginScreenFragment_to_MainScreenFragment"
-                app:destination="@id/MainScreenFragment"/>
-    </fragment>
+
 
 
 </navigation>

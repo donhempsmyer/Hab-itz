@@ -28,41 +28,7 @@ class MainScreenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
-//
-//        // Finds the hamburger icon
-//        val hamburgerIcon: ImageView = binding.hamburgerIcon
-//
-////        // Sets the click listener for the hamburger icon
-////        hamburgerIcon.setOnClickListener { view ->
-////            // Creates the popup menu
-////
-////            val hamburgerPopupMenu = PopupMenu(requireContext(), hamburgerIcon)
-////            hamburgerPopupMenu.menuInflater.inflate(R.menu.hamburger_menu, hamburgerPopupMenu.menu)
-////
-////            hamburgerPopupMenu.setOnMenuItemClickListener { item: MenuItem ->
-////                when (item.itemId) {
-////
-////                    R.id.habitz_navBtn -> {
-////                        // Navigate to the HabitzScreenFragment
-////                        findNavController().navigate(R.id.action_MainScreenFragment_to_HabitzScreenFragment)
-////                        true
-////                    }
-////                    R.id.journal_navBtn -> {
-////                        // Navigate to the Journal fragment
-////                        //findNavController().navigate(R.id.action_MainScreenFragment_to_JournalFragment)
-////                        true
-////                    }
-////                    R.id.scheduler_navBtn -> {
-////                        // Navigate to the CurrentDayFragment
-////                        findNavController().navigate(R.id.action_MainScreenFragment_to_CurrentDayFragment)
-////                        true
-////                    }
-////                    else -> false
-////                }
-////            }
-////
-////            hamburgerPopupMenu.show()
-////        }
+
 
         return binding.root
     }

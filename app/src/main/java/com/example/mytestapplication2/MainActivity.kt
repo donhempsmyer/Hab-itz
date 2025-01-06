@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +13,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomappbar.BottomAppBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,63 +29,47 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Sets the toolbar
+        val bottomAppToolbar = findViewById<BottomAppBar>(R.id.bottomAppBar)
 
+        //Sets the toolbar as ActionBar
+        setSupportActionBar(bottomAppToolbar)
 
-        // assigning id of the toolbar to a var
-        val mainToolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-
-        //using toolbar as  ActionBar
-        setSupportActionBar(mainToolbar)
-
-        // Set the hamburger icon as the navigation icon
-        binding.toolbar.setNavigationIcon(R.drawable.hamburgericon)
-
-//        //doesn't work(should work)
-//        // Sets the nav Icon to the hamburger_icon
-//        mainToolbar.setNavigationIcon(R.drawable.hamburger_icon)
-
-//        //doesn't work lol
-//        // Disable the default back arrow if needed (no need if using hamburger icon)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-
-
+        //Sets the NavController to the nav_graph
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Handle the click on the hamburger icon
-        binding.toolbar.setNavigationOnClickListener { view ->
-            val hamburgerPopupMenu = PopupMenu(this, view)
-            hamburgerPopupMenu.menuInflater.inflate(R.menu.hamburger_menu, hamburgerPopupMenu.menu)
-
-            hamburgerPopupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.home_navBtn -> {
-                        //Navigate to the MainScreenFragment
-                        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_CurrentDayFragment_to_MainScreenFragment)
-                        true
-                    }
-                    R.id.habitz_navBtn -> {
-                        // Navigate to the HabitzScreenFragment
-                        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_MainScreenFragment_to_HabitzScreenFragment)
-                        true
-                    }
-                    R.id.journal_navBtn -> {
-                        // Navigate to the Journal fragment
-                       // findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_MainScreenFragment_to_JournalFragment)
-                        true
-                    }
-                    R.id.scheduler_navBtn -> {
-                        // Navigate to the CurrentDayFragment
-                        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_MainScreenFragment_to_CurrentDayFragment)
-                        true
-                    }
-                    else -> false
-                }
+        // Set up OnClickListener for the BottomAppBar buttons
+        binding.bottomAppBar.findViewById<Button>(R.id.scheduler_navBtn).setOnClickListener {
+            // Only navigate if not already on the CurrentDayFragment
+            val currentDestination = navController.currentDestination?.id
+            if (currentDestination != R.id.CurrentDayFragment) {
+                navController.navigate(R.id.action_MainScreenFragment_to_CurrentDayFragment)
             }
-
-            hamburgerPopupMenu.show()
         }
+
+        binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
+            // Only navigate if not already on the MainScreenFragment
+            val currentDestination = navController.currentDestination?.id
+            if (currentDestination != R.id.MainScreenFragment) {
+                navController.navigate(R.id.action_CurrentDayFragment_to_MainScreenFragment)
+            }
+        }
+
+        binding.bottomAppBar.findViewById<Button>(R.id.habitz_navBtn).setOnClickListener {
+            // Only navigate if not already on the HabitzScreenFragment
+            val currentDestination = navController.currentDestination?.id
+            if (currentDestination != R.id.HabitzScreenFragment) {
+                navController.navigate(R.id.action_CurrentDayFragment_to_HabitzScreenFragment)
+            }
+        }
+//        need to activate when we merge the journal fragment
+//        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
+//            // Only navigate if not already on the JournalFragment (when it exists)
+//            val currentDestination = navController.currentDestination?.id
+//            if (currentDestination != R.id.JournalFragment) {
+//                navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+//            }
+//        }
     }
 
 }
