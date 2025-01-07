@@ -1,4 +1,4 @@
-package com.example.mytestapplication2.journal
+package com.example.mytestapplication2.journal.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
+import com.example.mytestapplication2.journal.JournalItemData
+import com.example.mytestapplication2.journal.JournalRecyclerAdapter
 
 class JournalFragment : Fragment() {
 

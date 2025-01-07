@@ -77,7 +77,7 @@
 
     <fragment
             android:id="@+id/journal_fragment"
-            android:name="com.example.mytestapplication2.journal.JournalFragment"
+            android:name="com.example.mytestapplication2.journal.fragments.JournalFragment"
             android:label="Journal"
             tools:layout="@layout/fragment_journal_recycler">
 
