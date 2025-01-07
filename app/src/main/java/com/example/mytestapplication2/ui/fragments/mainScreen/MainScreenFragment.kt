@@ -12,8 +12,6 @@ import android.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 import com.example.mytestapplication2.R
-import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
-import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -48,7 +46,7 @@ class MainScreenFragment : Fragment() {
                     }
                     R.id.journal_navBtn -> {
                         // Navigate to the Journal fragment
-                        //findNavController().navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+                        findNavController().navigate(R.id.action_MainScreenFragment_to_JournalFragment)
                         true
                     }
                     R.id.scheduler_navBtn -> {
