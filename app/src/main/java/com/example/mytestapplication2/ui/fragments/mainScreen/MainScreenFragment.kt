@@ -45,7 +45,7 @@ class MainScreenFragment : Fragment() {
                     }
                     R.id.journal_navBtn -> {
                         // Navigate to the Journal fragment
-                        //findNavController().navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+                        findNavController().navigate(R.id.action_MainScreenFragment_to_JournalFragment)
                         true
                     }
                     R.id.scheduler_navBtn -> {

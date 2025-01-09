@@ -131,5 +131,11 @@
     <string name="enter_event">Enter Event</string>
     <string name="enter__user_event">Enter Event</string>
 
+    // Journal strings
+    <string name="journal_item_book_icon">Journal item book icon</string>
+    <string name="journal_item_title">Journal item title</string>
+    <string name="journal_entry_hint">Enter your journal entry here</string>
+    <string name="journal_item_date">Date of entry</string>
+
 
 </resources>
