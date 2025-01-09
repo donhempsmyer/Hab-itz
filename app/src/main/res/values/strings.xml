@@ -129,6 +129,7 @@
     <string name="nav_to_journal_fragment">Journal</string>
     <string name="nav_to_scheduler_fragment">Schedule</string>
     <string name="enter_event">Enter Event</string>
+    <string name="enter__user_event">Enter Event</string>
 
 
 </resources>
