@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText
+            android:id="@+id/journal_entry_edit_text"
+            android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
+            android:layout_marginVertical="@dimen/fragment_vertical_margin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autofillHints="@string/journal_entry_hint"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"/>
+
+</LinearLayout>

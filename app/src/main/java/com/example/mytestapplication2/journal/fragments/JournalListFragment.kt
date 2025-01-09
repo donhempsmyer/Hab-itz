@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
-import com.example.mytestapplication2.journal.JournalItemData
+import com.example.mytestapplication2.journal.data.JournalItemData
 import com.example.mytestapplication2.journal.JournalRecyclerAdapter
 
-class JournalFragment : Fragment() {
+class JournalListFragment : Fragment() {
 
     private var _binding: FragmentJournalRecyclerBinding? = null
     // This property is only valid between onCreateView and onDestroyView.

@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.mytestapplication2.databinding.FragmentJournalItemBinding
+import com.example.mytestapplication2.journal.data.JournalItemData
 
 class JournalRecyclerAdapter(private val journalItemList : ArrayList<JournalItemData>) : RecyclerView.Adapter<JournalRecyclerAdapter.ViewHolder>() {
 

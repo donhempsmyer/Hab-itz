@@ -8,12 +8,14 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
         android:layout_marginVertical="@dimen/fragment_vertical_margin"
-        tools:context=".journal.fragments.JournalFragment">
+        tools:context=".journal.fragments.JournalListFragment">
 
 <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/journal_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/fragment_journal_item"/>
 

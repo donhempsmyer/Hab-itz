@@ -1,4 +1,4 @@
-package com.example.mytestapplication2.journal
+package com.example.mytestapplication2.journal.data
 
 data class JournalItemData(
     val journalImage: Int,
