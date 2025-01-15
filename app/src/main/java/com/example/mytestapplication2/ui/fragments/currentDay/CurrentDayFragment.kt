@@ -18,7 +18,6 @@ class CurrentDayFragment : Fragment() {
     lateinit var eventText: EditText
 
 
-    var userTextList = ArrayList<EditText>(48)
 
 
 
@@ -45,10 +44,13 @@ class CurrentDayFragment : Fragment() {
             adapter = TimeAdapter(timeList)
         }
 
+
+
     }
 
     override fun onResume() {
         super.onResume()
+
     }
 
 
