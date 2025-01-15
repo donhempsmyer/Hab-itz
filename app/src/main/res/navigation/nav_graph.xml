@@ -8,9 +8,10 @@
     <fragment
             android:id="@+id/MainScreenFragment"
             android:name="com.example.mytestapplication2.ui.fragments.mainScreen.MainScreenFragment"
+            android:label="@string/main_fragment_label"
             tools:layout="@layout/fragment_main_screen">
 
-            <!--these actions move to multiple frames-->
+        <!--these actions move to multiple frames-->
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
                 app:destination="@id/CurrentDayFragment"/>
@@ -20,54 +21,39 @@
                 app:destination="@id/HabitzScreenFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_MainScreenFragment_self"
-                app:destination="@id/MainScreenFragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_JournalFragment"
+                app:destination="@id/journal_fragment"/>
     </fragment>
 
 
     <fragment
             android:id="@+id/CurrentDayFragment"
             android:name="com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment"
+            android:label="@string/current_day_fragment_label"
             tools:layout="@layout/fragment_current_day">
 
         <action android:id="@+id/action_CurrentDayFragment_to_MainScreenFragment"
                 app:destination="@id/MainScreenFragment"/>
-        <action android:id="@+id/action_CurrentDayFragment_to_YearlyViewFragment"
-                app:destination="@id/YearlyViewFragment"/>
-        <action android:id="@+id/action_CurrentDayFragment_to_HabitzScreenFragment"
-                app:destination="@id/HabitzScreenFragment"/>
     </fragment>
 
     <fragment
-        android:id="@+id/YearlyViewFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.YearView.YearlyViewFragment"
+            android:id="@+id/YearlyViewFragment"
+            android:name="com.example.mytestapplication2.ui.fragments.YearView.YearlyViewFragment"
+            android:label="@string/yearly_view_fragment_label"
+            tools:layout="@layout/fragment_yearly_view">
 
-        tools:layout="@layout/fragment_yearly_view">
-
-        <action android:id="@+id/action_YearlyViewFragment_to_MainScreenFragment"
-                app:destination="@id/MainScreenFragment"/>
-        <action android:id="@+id/action_YearlyViewFragment_to_CurrentDayFragment"
-                app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_YearlyViewFragment_to_HabitzScreenFragment"
-                app:destination="@id/HabitzScreenFragment"/>
     </fragment>
 
     <fragment
-        android:id="@+id/HabitzScreenFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment"
-
-        tools:layout="@layout/fragment_habitz_screen">
+            android:id="@+id/HabitzScreenFragment"
+            android:name="com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment"
+            android:label="@string/habitz_view_fragment_label"
+            tools:layout="@layout/fragment_habitz_screen">
 
         <action android:id="@+id/action_HabitzScreenFragment_to_createHabitScreen"
                 app:destination="@id/createHabitScreen"/>
         <action android:id="@+id/action_HabitzScreenFragment_to_updateHabitScreen"
                 app:destination="@id/updateHabitScreen"/>
-        <action android:id="@+id/action_HabitzScreenFragment_to_MainScreenFragment"
-                app:destination="@id/MainScreenFragment"/>
-        <action android:id="@+id/action_HabitzScreenFragment_to_CurrentDayFragment"
-                app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_HabitzScreenFragment_to_YearlyViewFragment"
-                app:destination="@id/YearlyViewFragment"/>
     </fragment>
 
     <fragment android:id="@+id/createHabitScreen"
@@ -91,7 +77,13 @@
 
     </fragment>
 
+    <fragment
+            android:id="@+id/journal_fragment"
+            android:name="com.example.mytestapplication2.journal.fragments.JournalFragment"
+            android:label="Journal"
+            tools:layout="@layout/fragment_journal_recycler">
 
+    </fragment>
 
 
 

@@ -3,14 +3,16 @@
     <string name="action_settings">Settings</string>
 
 
-<!--    &lt;!&ndash; Strings used for fragments for navigation &ndash;&gt;-->
-<!--    <string name="main_fragment_label">Main Fragment</string>-->
-<!--    <string name="current_day_fragment_label">Current Day Fragment</string>-->
-<!--    <string name="yearly_view_fragment_label">Yearly View Fragment</string>-->
-<!--    <string name="habitz_view_fragment_label">Habitz View Fragment</string>-->
-<!--    <string name="login_fragment_label">Login Screen Fragment</string>-->
-<!--    <string name="next">Next</string>-->
-<!--    <string name="previous">Previous</string>-->
+    <!-- Strings used for fragments for navigation -->
+    <string name="main_fragment_label">Main Fragment</string>
+    <string name="current_day_fragment_label">Current Day Fragment</string>
+    <string name="yearly_view_fragment_label">Yearly View Fragment</string>
+    <string name="habitz_view_fragment_label">Habitz View Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="enter_event">event</string>
 
 
     //main page text
@@ -28,24 +30,18 @@
    >
 
 
-    //login text
-    <string name="login_text">Login</string>
-    <string name="login_icon_description">Habitz Small Icon</string>
-    <string name="user_name">User Name</string>
-    <string name="pass_word">Password</string>
-
-<!--    //hamburger icon nav-->
-<!--    <string name="nav_to_main_screen_fragment">Home</string>-->
-<!--    <string name="nav_to_habits_fragment">Habitz</string>-->
-<!--    <string name="nav_to_journal_fragment">Journal</string>-->
-<!--    <string name="nav_to_scheduler_fragment">Schedule</string>-->
-
 
     //bottom nav toolbar
     <string name="note_btn_text">Notes</string>
     <string name="Home_btn_text">Home</string>
     <string name="Habitz_btn_text">Habitz</string>
     <string name="sch_btn_text">Schedule</string>
+
+    // Journal strings
+    <string name="journal_item_book_icon">Journal item book icon</string>
+    <string name="journal_item_title">Journal item title</string>
+    <string name="journal_entry_hint">Enter your journal entry here</string>
+    <string name="journal_item_date">Date of entry</string>
 
 
 

@@ -59,17 +59,23 @@ class MainActivity : AppCompatActivity() {
             // Only navigate if not already on the HabitzScreenFragment
             val currentDestination = navController.currentDestination?.id
             if (currentDestination != R.id.HabitzScreenFragment) {
-                navController.navigate(R.id.action_CurrentDayFragment_to_HabitzScreenFragment)
+                navController.navigate(R.id.action_MainScreenFragment_to_HabitzScreenFragment)
             }
         }
 //        need to activate when we merge the journal fragment
-//        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
-//            // Only navigate if not already on the JournalFragment (when it exists)
-//            val currentDestination = navController.currentDestination?.id
-//            if (currentDestination != R.id.JournalFragment) {
-//                navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
-//            }
-//        }
+        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
+            // Only navigate if not already on the JournalFragment (when it exists)
+            val currentDestination = navController.currentDestination?.id
+            if (currentDestination != R.id.action_MainScreenFragment_to_JournalFragment) {
+                navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
     }
 
 }
