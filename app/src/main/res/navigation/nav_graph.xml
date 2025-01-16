@@ -58,22 +58,22 @@
 
     <fragment android:id="@+id/createHabitScreen"
               android:name="com.example.mytestapplication2.ui.fragments.createhabit.CreateHabitScreen"
-              android:label="createHabit"
+              android:label="@string/create_habit_fragment_label"
               tools:layout="@layout/fragment_create_habit_screen">
 
         <action android:id="@+id/action_createHabitScreen_to_HabitzScreenFragment"
                 app:destination="@id/HabitzScreenFragment"/>
-
     </fragment>
 
     <fragment
             android:id="@+id/updateHabitScreen"
             android:name="com.example.mytestapplication2.ui.fragments.updatehabit.UpdateHabitScreen"
-            android:label="updateHabit"
+            android:label="@string/update_habit_fragment_label"
             tools:layout="@layout/fragment_update_habit_screen">
 
         <action android:id="@+id/action_updateHabitScreen_to_HabitzScreenFragment"
                 app:destination="@id/HabitzScreenFragment"/>
+        <argument android:name="selectedHabit" app:argType="com.example.mytestapplication2.data.models.Habit"/>
 
     </fragment>
 
