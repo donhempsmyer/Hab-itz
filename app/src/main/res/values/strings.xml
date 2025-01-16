@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyTestApplication2</string>
+    <string name="app_name">Habitz</string>
     <string name="action_settings">Settings</string>
 
 
@@ -17,6 +17,8 @@
 
     //main page text
     <string name="main_page">main page text</string>
+    // Quote box
+    <string name="quote_text">Quote:</string>
 
 
     //current day text
@@ -42,6 +44,7 @@
     <string name="journal_item_title">Journal item title</string>
     <string name="journal_entry_hint">Enter your journal entry here</string>
     <string name="journal_item_date">Date of entry</string>
+
 
 
 

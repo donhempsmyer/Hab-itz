@@ -1,6 +1,7 @@
 package com.example.mytestapplication2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
+import saveQuotesToFile
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,6 +73,14 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
             }
         }
+
+        //Calls func to save the quotes list
+        try {
+            saveQuotesToFile(applicationContext)
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error saving quotes file: ${e.message}")
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
