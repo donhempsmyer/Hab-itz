@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mytestapplication2.data.models.TimeCell
 import com.example.mytestapplication2.data.models.timeList
+import com.example.mytestapplication2.data.models.userTextList
 import com.example.mytestapplication2.databinding.FragmentCurrentDayBinding
 
 
 class CurrentDayFragment : Fragment() {
 
     private lateinit var binding: FragmentCurrentDayBinding
-    lateinit var eventText: EditText
-
+    private lateinit var addButton: ImageButton
 
 
 
@@ -37,22 +37,15 @@ class CurrentDayFragment : Fragment() {
 
         populateDay()
 
+        val timeAdapter = TimeAdapter(timeList)
 
-        val CurrentDayFragment = this
         binding.mHalfHourRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = TimeAdapter(timeList)
+            adapter = timeAdapter
         }
 
 
-
     }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
 
 
 
@@ -88,6 +81,7 @@ class CurrentDayFragment : Fragment() {
                 time = semiHourlyList[i],
                 timeContent = ""))
             timeList.add(timeCell)
+            userTextList.add((timeCell.timeContent))
         }
     }
 
