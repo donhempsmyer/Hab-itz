@@ -83,6 +83,9 @@
             android:label="Journal"
             tools:layout="@layout/fragment_journal_recycler">
 
+        <action
+            android:id="@+id/action_journal_fragment_to_MainScreenFragment"
+            app:destination="@id/MainScreenFragment" />
     </fragment>
 
 

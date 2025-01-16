@@ -2,22 +2,12 @@ package com.example.mytestapplication2
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
-import android.widget.PopupMenu
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import saveQuotesToFile
 
@@ -69,8 +59,16 @@ class MainActivity : AppCompatActivity() {
         binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
             // Only navigate if not already on the JournalFragment (when it exists)
             val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.action_MainScreenFragment_to_JournalFragment) {
+            if (currentDestination != R.id.journal_fragment) {
                 navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+            }
+        }
+
+        binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
+            // Only navigate if not already on the MainScreenFragment
+            val currentDestination = navController.currentDestination?.id
+            if (currentDestination != R.id.MainScreenFragment) {
+                navController.navigate(R.id.action_journal_fragment_to_MainScreenFragment)
             }
         }
 
