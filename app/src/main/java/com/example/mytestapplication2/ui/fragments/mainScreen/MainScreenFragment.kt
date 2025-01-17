@@ -14,6 +14,7 @@ import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 import com.example.mytestapplication2.journal.fragments.JournalFragment
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
+import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 import kotlinx.serialization.json.Json
 import java.io.File
 
@@ -26,7 +27,7 @@ class MainScreenFragment : Fragment() {
     private val fragmentList = listOf(
         CurrentDayFragment(),
         JournalFragment(),
-        //HabitzScreenFragment()
+        HabitzScreenFragment()
     )
 
     private var currentFragmentIndex = 0

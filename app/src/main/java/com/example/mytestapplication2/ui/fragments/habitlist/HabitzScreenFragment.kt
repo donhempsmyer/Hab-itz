@@ -64,12 +64,12 @@ class HabitzScreenFragment : Fragment(R.layout.fragment_habitz_screen) {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_delete -> habitViewModel.deleteAllHabits()
-        }
-        Toast.makeText(activity, "All habits deleted", Toast.LENGTH_SHORT).show()
-
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.nav_delete -> habitViewModel.deleteAllHabits()
+//        }
+//        Toast.makeText(activity, "All habits deleted", Toast.LENGTH_SHORT).show()
+//
+//        return super.onOptionsItemSelected(item)
+//    }
 }

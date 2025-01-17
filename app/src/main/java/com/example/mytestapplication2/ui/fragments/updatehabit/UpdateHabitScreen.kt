@@ -113,16 +113,16 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
         binding.tvTimeSelectedUpdate.text = "Time: $cleanTime"
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.single_item_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_delete -> deleteHabit(args.selectedHabit)
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.single_item_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.nav_delete -> deleteHabit(args.selectedHabit)
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     private fun deleteHabit(habit: Habit) {
         habitViewModel.deleteHabit(habit)
