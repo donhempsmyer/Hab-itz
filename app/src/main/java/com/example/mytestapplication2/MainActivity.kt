@@ -64,13 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
-            // Only navigate if not already on the MainScreenFragment
-            val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.MainScreenFragment) {
-                navController.navigate(R.id.action_journal_fragment_to_MainScreenFragment)
-            }
-        }
+
 
         //Calls func to save the quotes list
         try {
