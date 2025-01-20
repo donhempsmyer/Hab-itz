@@ -7,8 +7,26 @@
     tools:context=".ui.fragments.currentDay.CurrentDayFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mHalfHourRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+            android:id="@+id/mHalfHourRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+            android:src="@drawable/banner_box_background"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView3"
+            android:paddingHorizontal="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

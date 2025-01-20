@@ -23,9 +23,13 @@
     // Quote box
     <string name="quote_header_box">Quote:</string>
     <string name="quote_text_box">there is a quote here!!</string>
+    <string name="scroll_view_for_preview_panel">Preview Panel ScrollView</string>
+    // main screen buttons
     <string name="toggle_leftBtn">toggle_Left</string>
     <string name="toggle_rightBtn">toggle_right</string>
-    <string name="scroll_view_for_preview_panel">Preview Panel ScrollView</string>
+    <string name="preview_panel">Preview Panel</string>
+
+    <string name="no_fragment_to_display">No Fragment to Display</string>
 
 
     //current day text

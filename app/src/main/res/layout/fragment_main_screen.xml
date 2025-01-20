@@ -14,17 +14,20 @@
             android:id="@+id/btnToggleRight"
             android:layout_width="56dp"
             android:background="@drawable/arrowright"
+            android:backgroundTint="@color/habits_blue"
             android:layout_height="55dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" android:contentDescription="@string/toggle_rightBtn"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            android:contentDescription="@string/toggle_rightBtn"/>
 
     <Button
             android:id="@+id/btnToggleLeft"
             android:layout_width="56dp"
             android:layout_height="55dp"
             android:background="@drawable/arrowleft"
+            android:backgroundTint="@color/habits_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -142,8 +145,18 @@
             app:layout_constraintWidth_percent="1.0"
             app:layout_constraintHeight_percent="0.1"/>
 
-
-
+    <Button
+            android:text="@string/preview_panel"
+            android:textColor="@color/habits_green"
+            android:backgroundTint="@color/habits_blue"
+            android:layout_width="256dp"
+            android:layout_height="55dp"
+            android:id="@+id/preview_panel_btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+            app:layout_constraintEnd_toStartOf="@+id/btnToggleRight"
+            app:layout_constraintStart_toEndOf="@+id/btnToggleLeft"
+            app:layout_constraintVertical_bias="0.0"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
