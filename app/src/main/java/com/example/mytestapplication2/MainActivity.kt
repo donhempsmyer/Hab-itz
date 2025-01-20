@@ -2,12 +2,22 @@ package com.example.mytestapplication2
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import saveQuotesToFile
 
@@ -31,46 +41,100 @@ class MainActivity : AppCompatActivity() {
         //Sets the NavController to the nav_graph
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
+
         // Set up OnClickListener for the BottomAppBar buttons
+        // Scheduler Button
         binding.bottomAppBar.findViewById<Button>(R.id.scheduler_navBtn).setOnClickListener {
-            // Only navigate if not already on the CurrentDayFragment
+            // Define possible destination fragments
+            val destinations = listOf(R.id.CurrentDayFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+
+            // Get current destination
             val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.CurrentDayFragment) {
-                navController.navigate(R.id.action_MainScreenFragment_to_CurrentDayFragment)
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.CurrentDayFragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
             }
         }
 
+        // Home Button
         binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
-            // Only navigate if not already on the MainScreenFragment
+            // Define possible destination fragments
+            val destinations = listOf(R.id.MainScreenFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+
+            // Get current destination
             val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.MainScreenFragment) {
-                navController.navigate(R.id.action_CurrentDayFragment_to_MainScreenFragment)
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.MainScreenFragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
             }
         }
 
+        // Habitz Button
         binding.bottomAppBar.findViewById<Button>(R.id.habitz_navBtn).setOnClickListener {
-            // Only navigate if not already on the HabitzScreenFragment
+            // Define possible destination fragments
+            val destinations = listOf(R.id.HabitzScreenFragment, R.id.CurrentDayFragment, R.id.journal_fragment)
+
+            // Get current destination
             val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.HabitzScreenFragment) {
-                navController.navigate(R.id.action_MainScreenFragment_to_HabitzScreenFragment)
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.HabitzScreenFragment) {
+                return@setOnClickListener
             }
-        }
-//        need to activate when we merge the journal fragment
-        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
-            // Only navigate if not already on the JournalFragment (when it exists)
-            val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.journal_fragment) {
-                navController.navigate(R.id.action_MainScreenFragment_to_JournalFragment)
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
             }
         }
 
-        binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
-            // Only navigate if not already on the MainScreenFragment
+        // Journal Button
+        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
+            // Define possible destination fragments
+            val destinations = listOf(R.id.journal_fragment, R.id.HabitzScreenFragment, R.id.MainScreenFragment)
+
+            // Get current destination
             val currentDestination = navController.currentDestination?.id
-            if (currentDestination != R.id.MainScreenFragment) {
-                navController.navigate(R.id.action_journal_fragment_to_MainScreenFragment)
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            // Checks to see if the fragment you are on is equal to the id of the fragment to the button you click
+            // Is a guard for clicking on the button for the same fragment your on
+            if(currentDestination == R.id.journal_fragment) {
+                return@setOnClickListener
             }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
+            }
+
         }
+
+
 
         //Calls func to save the quotes list
         try {

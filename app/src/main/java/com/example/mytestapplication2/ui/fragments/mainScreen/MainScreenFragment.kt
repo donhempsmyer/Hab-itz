@@ -2,8 +2,11 @@ package com.example.mytestapplication2.ui.fragments.mainScreen
 
 import Quotes
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +17,10 @@ import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 import com.example.mytestapplication2.journal.fragments.JournalFragment
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.CornerSize
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.ShapeAppearanceModel
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -23,11 +30,14 @@ class MainScreenFragment : Fragment() {
     private var _binding: FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
 
+
+
+
     // Fragment list for preview screen with dynamically toggling
     private val fragmentList = listOf(
         CurrentDayFragment(),
         JournalFragment(),
-        HabitzScreenFragment()
+        //HabitzScreenFragment()
     )
 
     private var currentFragmentIndex = 0
@@ -41,6 +51,10 @@ class MainScreenFragment : Fragment() {
         val fragmentContainer = binding.fragmentContainer
         val btnToggleRight: Button = binding.btnToggleRight
         val btnToggleLeft: Button = binding.btnToggleLeft
+
+        // Sets content
+        btnToggleLeft.setContentDescription("Toggle Left")
+        btnToggleRight.setContentDescription("Toggle Right")
 
 
         // Initialize the first fragment
@@ -65,9 +79,26 @@ class MainScreenFragment : Fragment() {
         }
 
 
+        // Making rounded corners for textViews
+        val quoteTextBox: TextView = binding.quoteBox
+        val myFloat: Float = 16f
+
+        // Correctly setting corner size for rounded corners
+        val shapeAppearanceModel = ShapeAppearanceModel.builder()
+            .setAllCorners(CornerFamily.ROUNDED, myFloat)
+            .build()
+
+        val materialShapeDrawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
+            setFillColor(ColorStateList.valueOf(Color.parseColor("#20156B")))
+        }
+
+        quoteTextBox.background = materialShapeDrawable
+
 
         //Calls func to load and display a random quote
         loadQuoteFromFile(requireContext(), binding.quoteText)
+
+
 
         return binding.root
     }

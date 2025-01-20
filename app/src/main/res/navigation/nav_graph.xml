@@ -21,8 +21,9 @@
                 app:destination="@id/HabitzScreenFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_MainScreenFragment_to_JournalFragment"
+        <action android:id="@+id/action_MainScreenFragment_to_journal_fragment"
                 app:destination="@id/journal_fragment"/>
+
     </fragment>
 
 
@@ -34,6 +35,8 @@
 
         <action android:id="@+id/action_CurrentDayFragment_to_MainScreenFragment"
                 app:destination="@id/MainScreenFragment"/>
+        <action android:id="@+id/action_CurrentDayFragment_to_journal_fragment"
+                app:destination="@id/journal_fragment"/>
     </fragment>
 
     <fragment
@@ -86,6 +89,12 @@
         <action
             android:id="@+id/action_journal_fragment_to_MainScreenFragment"
             app:destination="@id/MainScreenFragment" />
+        <action android:id="@+id/action_journal_fragment_to_MainScreenFragment2"
+                app:destination="@id/MainScreenFragment"/>
+
+        <action android:id="@+id/action_journal_fragment_to_CurrentDayFragment"
+                app:destination="@id/CurrentDayFragment"/>
+
     </fragment>
 
 
