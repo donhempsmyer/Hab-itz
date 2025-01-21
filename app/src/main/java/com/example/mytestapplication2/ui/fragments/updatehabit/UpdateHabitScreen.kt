@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.DatePicker
+import android.widget.TextView
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,7 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
     private var title = ""
     private var description = ""
     private var timeStamp = ""
+    private var errorMessage = ""
 
     private var day = 0
     private var month = 0
@@ -57,24 +59,28 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
         binding.btnConfirmUpdate.setOnClickListener {
             updateHabitInDB()
         }
-
-        setHasOptionsMenu(true)
     }
 
     private fun updateHabitInDB() {
         title = binding.etHabitTitleUpdate.text.toString()
         description = binding.etHabitDescriptionUpdate.text.toString()
         timeStamp = "$cleanDate $cleanTime"
+        errorMessage = binding.errorMessage.text.toString()
 
-        if (!(title.isEmpty() || description.isEmpty() || timeStamp.isEmpty())) {
+        if (title.isNotEmpty() && description.isNotEmpty() && cleanDate.isNotEmpty() && cleanTime.isNotEmpty()) {
             val habit = Habit(args.selectedHabit.id, title, description, timeStamp)
 
             habitViewModel.updateHabit(habit)
-            Toast.makeText(context, "Habit updated successfully", Toast.LENGTH_SHORT).show()
 
             findNavController().navigate(R.id.action_updateHabitScreen_to_HabitzScreenFragment)
         } else {
-            Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+            if (title.isEmpty() || description.isEmpty() || cleanDate.isEmpty() || cleanTime.isEmpty()) {
+                val textView = TextView(context)
+                textView.text = "Error: Please fill out all fields!"
+                textView.gravity = Gravity.TOP
+                textView.textSize = 20f
+                binding.errorMessage.text = textView.text
+            }
         }
     }
 
@@ -112,17 +118,6 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
         cleanTime = Calculations.cleanTime(p1, p2)
         binding.tvTimeSelectedUpdate.text = "Time: $cleanTime"
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.single_item_menu, menu)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.nav_delete -> deleteHabit(args.selectedHabit)
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
     private fun deleteHabit(habit: Habit) {
         habitViewModel.deleteHabit(habit)

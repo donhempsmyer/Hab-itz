@@ -18,6 +18,13 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="30dp"
+                      android:textSize="20sp"
+                      android:gravity="center"
+                      android:textColor="@color/red"
+                      android:id="@+id/errorMessage"/>
+
             <EditText
                     android:id="@+id/et_habitTitle_update"
                     android:layout_width="match_parent"
@@ -40,6 +47,14 @@
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
+            <TextView
+                    android:id="@+id/tv_dateSelected_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Date: (not selected)"
+                    android:textSize="20sp" />
+
             <Button
                     android:id="@+id/btn_pickDate_update"
                     android:layout_width="match_parent"
@@ -53,11 +68,11 @@
                     android:textColor="@android:color/white" />
 
             <TextView
-                    android:id="@+id/tv_dateSelected_update"
+                    android:id="@+id/tv_timeSelected_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Date: (not selected)"
+                    android:text="Time: (not selected)"
                     android:textSize="20sp" />
 
             <Button
@@ -72,13 +87,6 @@
                     android:text="Pick a time"
                     android:textColor="@android:color/white" />
 
-            <TextView
-                    android:id="@+id/tv_timeSelected_update"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Time: (not selected)"
-                    android:textSize="20sp" />
 
             <Button
                     android:id="@+id/btn_confirm_update"

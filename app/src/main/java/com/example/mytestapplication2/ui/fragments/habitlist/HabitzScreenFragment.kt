@@ -52,8 +52,6 @@ class HabitzScreenFragment : Fragment(R.layout.fragment_habitz_screen) {
             }
         })
 
-        setHasOptionsMenu(true)
-
         binding.swipeToRefresh.setOnRefreshListener {
             habitAdapter.setData(habitList)
             binding.swipeToRefresh.isRefreshing = false
@@ -63,13 +61,4 @@ class HabitzScreenFragment : Fragment(R.layout.fragment_habitz_screen) {
             findNavController().navigate(R.id.action_HabitzScreenFragment_to_createHabitScreen)
         }
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.nav_delete -> habitViewModel.deleteAllHabits()
-//        }
-//        Toast.makeText(activity, "All habits deleted", Toast.LENGTH_SHORT).show()
-//
-//        return super.onOptionsItemSelected(item)
-//    }
 }

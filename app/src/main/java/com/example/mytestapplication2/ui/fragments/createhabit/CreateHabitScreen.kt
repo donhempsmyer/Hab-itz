@@ -3,10 +3,11 @@ package com.example.mytestapplication2.ui.fragments.createhabit
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.DatePicker
+import android.widget.TextView
 import android.widget.TimePicker
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -23,6 +24,7 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
     private var title = ""
     private var description = ""
     private var timeStamp = ""
+    private var errorMessage = ""
 
     private var day = 0
     private var month = 0
@@ -54,17 +56,22 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
         title = binding.etHabitTitle.text.toString()
         description = binding.etHabitDescription.text.toString()
         timeStamp = "$cleanDate $cleanTime"
+        errorMessage = binding.errorMessage.text.toString()
 
-        if (!(title.isEmpty() || description.isEmpty() || timeStamp.isEmpty())) {
-            val habit = Habit(0,title, description, timeStamp)
+        if (title.isNotEmpty() && description.isNotEmpty() && cleanDate.isNotEmpty() && cleanTime.isNotEmpty()) {
+            val habit = Habit(0, title, description, timeStamp)
 
             habitViewModel.addHabit(habit)
-            Toast.makeText(activity, "Habit added successfully!", Toast.LENGTH_LONG).show()
 
             findNavController().navigate(R.id.action_createHabitScreen_to_HabitzScreenFragment)
         } else {
-            Toast.makeText(activity, "Please fill out all fields", Toast.LENGTH_LONG).show()
-
+            if (title.isEmpty() || description.isEmpty() || cleanDate.isEmpty() || cleanTime.isEmpty()) {
+                val textView = TextView(context)
+                textView.text = "Error: Please fill out all fields!"
+                textView.gravity = Gravity.TOP
+                textView.textSize = 20f
+                binding.errorMessage.text = textView.text
+            }
         }
     }
 

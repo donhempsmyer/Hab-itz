@@ -57,6 +57,8 @@
                 app:destination="@id/createHabitScreen"/>
         <action android:id="@+id/action_HabitzScreenFragment_to_updateHabitScreen"
                 app:destination="@id/updateHabitScreen"/>
+        <action android:id="@+id/action_HabitzScreenFragment_to_MainScreenFragment2"
+                app:destination="@id/MainScreenFragment"/>
     </fragment>
 
     <fragment android:id="@+id/createHabitScreen"
