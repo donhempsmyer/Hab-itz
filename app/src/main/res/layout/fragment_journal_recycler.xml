@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
-        android:layout_marginVertical="@dimen/fragment_vertical_margin"
-        tools:context=".journal.fragments.JournalListFragment">
-
 <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/journal_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/fragment_journal_item"/>
-
-</LinearLayout>
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/journal_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fragment_vertical_margin"
+            tools:context=".journal.fragments.JournalListFragment"
+            tools:listitem="@layout/fragment_journal_item"/>

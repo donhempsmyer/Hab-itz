@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
-import com.example.mytestapplication2.journal.data.JournalItemData
-import com.example.mytestapplication2.journal.JournalRecyclerAdapter
+import com.example.mytestapplication2.journal.data.JournalItem
+import com.example.mytestapplication2.journal.JournalAdapter
 
 class JournalListFragment : Fragment() {
 
@@ -29,28 +31,36 @@ class JournalListFragment : Fragment() {
         _binding = FragmentJournalRecyclerBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val journalItemList = ArrayList<JournalItemData>()
+        // Modify this list to pull data from user input (eventually a database)
+        val journalItemList = ArrayList<JournalItem>()
 
-        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 1", "Today"))
-        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 2", "12-22-2024"))
-        journalItemList.add(JournalItemData(R.drawable.book_icon, "Journal Entry 3", "12-20-2024"))
+        journalItemList.add(JournalItem(1, R.drawable.book_icon, "First Journal Entry", "01-01-2025"))
 
-        imageList = arrayOf(
-            R.drawable.book_icon
-        )
+        val journalAdapter = JournalAdapter { journalItem: JournalItem ->
+            journalAdapterOnClick(journalItem)
+        }
 
-        titleList = arrayOf(
-            "Journal Entry"
-        )
+        journalAdapter.submitList(journalItemList)
 
-        val recyclerView = binding.journalRecycler
+        val recyclerView: RecyclerView = binding.journalRecycler
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
 
         // Set the adapter
-        recyclerView.adapter = JournalRecyclerAdapter(journalItemList)
+        // Fix this to open JournalEntryFragment when an item is clicked
+        recyclerView.adapter = journalAdapter
+
 
         return view
+    }
+
+    private fun journalAdapterOnClick(journalItem: JournalItem) {
+        //val fragment = JournalEntryFragment()
+        val transaction = parentFragmentManager.beginTransaction()
+        findNavController().navigate(R.id.action_JournalListFragment_to_JournalEntryFragment)
+        //transaction.replace(R.id.fragment_container_main_screen, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     override fun onDestroyView() {

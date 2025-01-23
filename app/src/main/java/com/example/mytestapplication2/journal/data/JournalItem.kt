@@ -1,6 +1,7 @@
 package com.example.mytestapplication2.journal.data
 
-data class JournalItemData(
+data class JournalItem(
+    val journalId: Long,
     val journalImage: Int,
     val journalTitle: String,
     val journalDate: String
