@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
@@ -16,6 +17,7 @@ import com.example.mytestapplication2.data.models.Habit
 import com.example.mytestapplication2.databinding.FragmentCreateHabitScreenBinding
 import com.example.mytestapplication2.ui.viewmodels.HabitViewModel
 import com.example.mytestapplication2.utils.Calculations
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
@@ -49,6 +51,10 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
             addHabitToDB()
         }
 
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         pickDateAndTime()
     }
 
@@ -62,6 +68,15 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
             val habit = Habit(0, title, description, timeStamp)
 
             habitViewModel.addHabit(habit)
+
+            val snackbar = Snackbar.make(binding.root, "Habit created successfully!", Snackbar.LENGTH_SHORT)
+            val snackbarView = snackbar.view
+            snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
+            snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
+            val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(params.leftMargin, params.topMargin + 200, params.rightMargin, params.bottomMargin + 200)
+            snackbarView.layoutParams = params
+            snackbar.show()
 
             findNavController().navigate(R.id.action_createHabitScreen_to_HabitzScreenFragment)
         } else {
@@ -108,10 +123,5 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
     override fun onDateSet(view: DatePicker?, yearX: Int, monthX: Int, dayX: Int) {
         cleanDate = Calculations.cleanDate(dayX, monthX + 1, yearX)
         binding.tvDateSelected.text = "Date: $cleanDate"
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
