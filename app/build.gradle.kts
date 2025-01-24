@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.navigation.safeargs.kotlin)
     id("kotlin-parcelize")
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 android {
@@ -32,37 +34,58 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
-
-    kapt {
-        correctErrorTypes = true
-    }
-    buildToolsVersion = rootProject.extra["buildToolsVersion"] as String
 }
 
 dependencies {
 
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.annotation)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.swiperefreshlayout)
-    implementation(libs.firebase.inappmessaging)
-    implementation(libs.androidx.mediarouter)
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.annotation)
+    implementation(libs.firebase.inappmessaging)
+    implementation(libs.androidx.mediarouter)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Navigation Components
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.androidx.lifecycle.common.java8)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Retrofit2
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter.gson)
+
+    // Room Components
     implementation(libs.androidx.room.runtime)
+    ksp(libs.google.devtools.ksp.symbol.processing.api)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
     androidTestImplementation(libs.androidx.room.testing)
+
+    // Swipe
+    implementation(libs.androidx.swiperefreshlayout)
 }

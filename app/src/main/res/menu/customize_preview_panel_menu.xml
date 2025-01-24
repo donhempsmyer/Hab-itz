@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+      xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/preview_panel_menu">
+
+
+    <item
+            android:id="@+id/menu_item_1"
+            android:title="Schedule"/>
+    <item
+            android:id="@+id/menu_item_2"
+            android:title="Journal"/>
+    <item
+            android:id="@+id/menu_item_3"
+            android:title="Habitz Screen"/>
+    <item
+            android:id="@+id/menu_item_4"
+            android:title="Create Habit"/>
+
+</menu>

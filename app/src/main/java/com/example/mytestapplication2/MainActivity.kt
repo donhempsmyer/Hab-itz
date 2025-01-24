@@ -1,14 +1,25 @@
 package com.example.mytestapplication2
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
+import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomappbar.BottomAppBar
+import saveQuotesToFile
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,25 +32,123 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        //Sets the toolbar
+        val bottomAppToolbar = findViewById<BottomAppBar>(R.id.bottomAppBar)
 
+        //Sets the toolbar as ActionBar
+        setSupportActionBar(bottomAppToolbar)
+
+        //Sets the NavController to the nav_graph
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
+
+        // Set up OnClickListener for the BottomAppBar buttons
+        // Scheduler Button
+        binding.bottomAppBar.findViewById<Button>(R.id.scheduler_navBtn).setOnClickListener {
+            // Define possible destination fragments
+            val destinations = listOf(R.id.CurrentDayFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+
+            // Get current destination
+            val currentDestination = navController.currentDestination?.id
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.CurrentDayFragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
+            }
+        }
+
+        // Home Button
+        binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
+            // Define possible destination fragments
+            val destinations = listOf(R.id.MainScreenFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+
+            // Get current destination
+            val currentDestination = navController.currentDestination?.id
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.MainScreenFragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
+            }
+        }
+
+        // Habitz Button
+        binding.bottomAppBar.findViewById<Button>(R.id.habitz_navBtn).setOnClickListener {
+            // Define possible destination fragments
+            val destinations = listOf(R.id.HabitzScreenFragment, R.id.CurrentDayFragment, R.id.journal_fragment)
+
+            // Get current destination
+            val currentDestination = navController.currentDestination?.id
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            if(currentDestination == R.id.HabitzScreenFragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
+            }
+        }
+
+        // Journal Button
+        binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
+            // Define possible destination fragments
+            val destinations = listOf(R.id.journal_fragment, R.id.HabitzScreenFragment, R.id.MainScreenFragment)
+
+            // Get current destination
+            val currentDestination = navController.currentDestination?.id
+
+            // Find a new destination that is not the current one
+            val destinationToNavigate = destinations.firstOrNull { it != currentDestination }
+
+            // Checks to see if the fragment you are on is equal to the id of the fragment to the button you click
+            // Is a guard for clicking on the button for the same fragment your on
+            if(currentDestination == R.id.journal_fragment) {
+                return@setOnClickListener
+            }
+            else{
+                // If there's a destination available, navigate to it
+                destinationToNavigate?.let {
+                    navController.navigate(it)
+                }
+            }
+
+        }
+
+
+
+        //Calls func to save the quotes list
+        try {
+            saveQuotesToFile(applicationContext)
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error saving quotes file: ${e.message}")
+        }
 
     }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
 }

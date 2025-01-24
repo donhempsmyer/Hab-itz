@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -8,19 +8,82 @@
         android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:fitsSystemWindows="true"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         >
 
-                <com.google.android.material.appbar.MaterialToolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"/>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
+        <!-- Your main content layout (content_main) -->
         <include layout="@layout/content_main"/>
 
+        <com.google.android.material.bottomappbar.BottomAppBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:id="@+id/bottomAppBar"
+                app:backgroundTint="@color/light_grey"
+                style="?android:attr/buttonBarStyle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.998">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:padding="3dp">
+
+                        <Button
+                                android:id="@+id/journal_navBtn"
+                                android:layout_width="100dp"
+                                android:layout_height="75dp"
+                                android:paddingHorizontal="5dp"
+                                android:backgroundTint="@color/habits_blue"
+                                android:textColor="@color/habits_green"
+                                android:layout_marginHorizontal="4dp"
+                                android:layout_weight="4"
+                                android:text="@string/note_btn_text"/>
+                        <Button
+                                android:id="@+id/habitz_navBtn"
+                                android:layout_width="100dp"
+                                android:layout_height="75dp"
+                                android:paddingHorizontal="5dp"
+                                android:backgroundTint="@color/habits_blue"
+                                android:textColor="@color/habits_green"
+                                android:layout_marginHorizontal="4dp"
+                                android:layout_weight="4"
+                                android:text="@string/Habitz_btn_text"/>
+
+                        <Button
+                                android:id="@+id/scheduler_navBtn"
+                                android:layout_width="100dp"
+                                android:layout_height="75dp"
+                                android:paddingHorizontal="5dp"
+                                android:backgroundTint="@color/habits_blue"
+                                android:textColor="@color/habits_green"
+                                android:layout_marginHorizontal="4dp"
+                                android:layout_weight="4"
+                                android:text="@string/sch_btn_text"/>
+
+                        <Button
+                                android:id="@+id/home_navBtn"
+                                android:layout_width="100dp"
+                                android:layout_height="75dp"
+                                android:paddingHorizontal="5dp"
+                                android:backgroundTint="@color/habits_blue"
+                                android:textColor="@color/habits_green"
+                                android:layout_marginHorizontal="4dp"
+                                android:layout_weight="4"
+                                android:text="@string/Home_btn_text"/>
+
+                </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

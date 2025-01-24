@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/LoginScreenFragment">
+            app:startDestination="@id/MainScreenFragment">
 
     <fragment
             android:id="@+id/MainScreenFragment"
@@ -11,7 +11,7 @@
             android:label="@string/main_fragment_label"
             tools:layout="@layout/fragment_main_screen">
 
-            <!--these actions move to multiple frames-->
+        <!--these actions move to multiple frames-->
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
                 app:destination="@id/CurrentDayFragment"/>
@@ -21,8 +21,9 @@
                 app:destination="@id/HabitzScreenFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_MainScreenFragment_to_JournalListFragment"
-                app:destination="@id/journal_list_fragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_journal_fragment"
+                app:destination="@id/journal_fragment"/>
+
     </fragment>
 
 
@@ -32,75 +33,72 @@
             android:label="@string/current_day_fragment_label"
             tools:layout="@layout/fragment_current_day">
 
+        <action android:id="@+id/action_CurrentDayFragment_to_MainScreenFragment"
+                app:destination="@id/MainScreenFragment"/>
+        <action android:id="@+id/action_CurrentDayFragment_to_journal_fragment"
+                app:destination="@id/journal_fragment"/>
     </fragment>
 
     <fragment
-        android:id="@+id/YearlyViewFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.YearView.YearlyViewFragment"
-        android:label="@string/yearly_view_fragment_label"
-        tools:layout="@layout/fragment_yearly_view">
+            android:id="@+id/YearlyViewFragment"
+            android:name="com.example.mytestapplication2.ui.fragments.YearView.YearlyViewFragment"
+            android:label="@string/yearly_view_fragment_label"
+            tools:layout="@layout/fragment_yearly_view">
 
     </fragment>
 
     <fragment
-        android:id="@+id/HabitzScreenFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment"
-        android:label="@string/habitz_view_fragment_label"
-        tools:layout="@layout/fragment_habitz_screen">
+            android:id="@+id/HabitzScreenFragment"
+            android:name="com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment"
+            android:label="@string/habitz_view_fragment_label"
+            tools:layout="@layout/fragment_habitz_screen">
 
         <action android:id="@+id/action_HabitzScreenFragment_to_createHabitScreen"
                 app:destination="@id/createHabitScreen"/>
         <action android:id="@+id/action_HabitzScreenFragment_to_updateHabitScreen"
                 app:destination="@id/updateHabitScreen"/>
+        <action android:id="@+id/action_HabitzScreenFragment_to_MainScreenFragment2"
+                app:destination="@id/MainScreenFragment"/>
     </fragment>
 
     <fragment android:id="@+id/createHabitScreen"
               android:name="com.example.mytestapplication2.ui.fragments.createhabit.CreateHabitScreen"
-              android:label="createHabit"
+              android:label="@string/create_habit_fragment_label"
               tools:layout="@layout/fragment_create_habit_screen">
 
         <action android:id="@+id/action_createHabitScreen_to_HabitzScreenFragment"
                 app:destination="@id/HabitzScreenFragment"/>
-
     </fragment>
 
     <fragment
             android:id="@+id/updateHabitScreen"
             android:name="com.example.mytestapplication2.ui.fragments.updatehabit.UpdateHabitScreen"
-            android:label="updateHabit"
+            android:label="@string/update_habit_fragment_label"
             tools:layout="@layout/fragment_update_habit_screen">
 
         <action android:id="@+id/action_updateHabitScreen_to_HabitzScreenFragment"
                 app:destination="@id/HabitzScreenFragment"/>
+        <argument android:name="selectedHabit" app:argType="com.example.mytestapplication2.data.models.Habit"/>
 
     </fragment>
 
     <fragment
-            android:id="@+id/journal_list_fragment"
-            android:name="com.example.mytestapplication2.journal.fragments.JournalListFragment"
-            android:label="Journal List"
+            android:id="@+id/journal_fragment"
+            android:name="com.example.mytestapplication2.journal.fragments.JournalFragment"
+            android:label="Journal"
             tools:layout="@layout/fragment_journal_recycler">
 
-        <action android:id="@+id/action_JournalListFragment_to_JournalEntryFragment"
-                app:destination="@id/journal_entry_fragment"/>
-    </fragment>
-
-    <fragment
-            android:id="@+id/journal_entry_fragment"
-            android:name="com.example.mytestapplication2.journal.fragments.JournalEntryFragment"
-            android:label="Journal Entry"
-            tools:layout="@layout/fragment_journal_entry">
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/LoginScreenFragment"
-        android:name="com.example.mytestapplication2.ui.fragments.loginIn.LoginScreenFragment"
-        android:label="Login Screen Fragment"
-        tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_LoginScreenFragment_to_MainScreenFragment"
+        <action
+            android:id="@+id/action_journal_fragment_to_MainScreenFragment"
+            app:destination="@id/MainScreenFragment" />
+        <action android:id="@+id/action_journal_fragment_to_MainScreenFragment2"
                 app:destination="@id/MainScreenFragment"/>
+
+        <action android:id="@+id/action_journal_fragment_to_CurrentDayFragment"
+                app:destination="@id/CurrentDayFragment"/>
+
     </fragment>
+
 
 
 </navigation>
