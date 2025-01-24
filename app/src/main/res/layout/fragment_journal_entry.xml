@@ -12,17 +12,19 @@
 
     <EditText
             android:layout_width="0dp"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:inputType="text"
             android:ems="10"
             android:id="@+id/journal_entry_title_EditText"
             android:autofillHints="Journal Entry Title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/journal_entry_body_EditText"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:hint="Enter journal entry title"/>
+            android:hint="Enter journal entry title" android:textColor="@color/black"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox" android:textSize="20sp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@+id/journal_entry_header_TextView"
+            android:elevation="5dp"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="300dp"
@@ -34,9 +36,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-
-            android:hint="Enter journal entry"/>
+            android:hint="Enter journal entry" android:textColor="@color/black" android:textSize="20sp"
+            style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"/>
     <Button
             android:text="Save"
             android:layout_width="wrap_content"
@@ -47,7 +48,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/journal_entry_body_EditText"
             app:layout_constraintEnd_toStartOf="@+id/journal_entry_cancel_Button"
-            app:layout_constraintVertical_bias="0.508" app:layout_constraintHorizontal_chainStyle="spread"/>
+            app:layout_constraintVertical_bias="0.107" app:layout_constraintHorizontal_chainStyle="spread"
+            android:textColor="@color/habits_green" android:textColorLink="@color/customGreen"/>
     <Button
             android:text="Cancel"
             android:layout_width="wrap_content"
@@ -58,6 +60,18 @@
             app:layout_constraintStart_toEndOf="@id/journal_entry_save_Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-    />
+            app:layout_constraintVertical_bias="0.107" android:textColorLink="@color/customGreen"
+            android:textColor="@color/habits_green"/>
+    <TextView
+            android:text="Journal Entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/journal_entry_header_TextView"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/journal_entry_title_EditText"
+            android:textColor="@color/habits_blue" android:textSize="24sp"
+            app:layout_constraintVertical_chainStyle="packed"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
