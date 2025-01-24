@@ -21,8 +21,8 @@
                 app:destination="@id/HabitzScreenFragment"/>
         <action android:id="@+id/action_MainScreenFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_MainScreenFragment_to_journal_fragment"
-                app:destination="@id/journal_fragment"/>
+        <action android:id="@+id/action_MainScreenFragment_to_JournalListFragment"
+                app:destination="@id/JournalListFragment"/>
 
     </fragment>
 
@@ -35,8 +35,8 @@
 
         <action android:id="@+id/action_CurrentDayFragment_to_MainScreenFragment"
                 app:destination="@id/MainScreenFragment"/>
-        <action android:id="@+id/action_CurrentDayFragment_to_journal_fragment"
-                app:destination="@id/journal_fragment"/>
+        <action android:id="@+id/action_CurrentDayFragment_to_JournalListFragment"
+                app:destination="@id/JournalListFragment"/>
     </fragment>
 
     <fragment
@@ -83,21 +83,43 @@
     </fragment>
 
     <fragment
-            android:id="@+id/journal_fragment"
-            android:name="com.example.mytestapplication2.journal.fragments.JournalFragment"
+            android:id="@+id/JournalListFragment"
+            android:name="com.example.mytestapplication2.journal.fragments.JournalListFragment"
             android:label="Journal"
             tools:layout="@layout/fragment_journal_recycler">
 
         <action
-            android:id="@+id/action_journal_fragment_to_MainScreenFragment"
+            android:id="@+id/action_JournalListFragment_to_MainScreenFragment"
             app:destination="@id/MainScreenFragment" />
-        <action android:id="@+id/action_journal_fragment_to_MainScreenFragment2"
+        <action android:id="@+id/action_JournalListFragment_to_MainScreenFragment2"
                 app:destination="@id/MainScreenFragment"/>
 
-        <action android:id="@+id/action_journal_fragment_to_CurrentDayFragment"
+        <action android:id="@+id/action_JournalListFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
+        <action android:id="@+id/action_JournalListFragment_to_JournalEntryFragment"
+                app:destination="@id/JournalEntryFragment"/>
 
     </fragment>
+
+    <fragment
+            android:id="@+id/JournalEntryFragment"
+            android:name="com.example.mytestapplication2.journal.fragments.JournalEntryFragment"
+            android:label="Entry"
+            tools:layout="@layout/fragment_journal_entry">
+
+        <action
+                android:id="@+id/action_JournalEntryFragment_to_MainScreenFragment"
+                app:destination="@id/MainScreenFragment" />
+        <action android:id="@+id/action_JournalEntryFragment_to_MainScreenFragment2"
+                app:destination="@id/MainScreenFragment"/>
+
+        <action android:id="@+id/action_JournalEntryFragment_to_CurrentDayFragment"
+                app:destination="@id/CurrentDayFragment"/>
+        <action android:id="@+id/action_JournalEntryFragment_to_JournalListFragment"
+                app:destination="@id/JournalListFragment"/>
+
+    </fragment>
+
 
 
 

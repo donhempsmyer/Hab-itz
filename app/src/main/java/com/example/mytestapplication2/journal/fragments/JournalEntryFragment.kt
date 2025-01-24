@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalEntryBinding
 import com.example.mytestapplication2.journal.data.JournalItem
 
@@ -36,6 +38,22 @@ class JournalEntryFragment : Fragment() {
         binding.journalEntrySaveButton.setOnClickListener {
             val journalEntryTitle = binding.journalEntryTitleEditText.text.toString()
             val journalEntryContent = binding.journalEntryBodyEditText.text.toString()
+
+            val transaction = parentFragmentManager.beginTransaction()
+            findNavController().navigate(R.id.action_JournalEntryFragment_to_JournalListFragment)
+            //transaction.replace(R.id.fragment_container_main_screen, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        // Cancel button functionality
+        binding.journalEntryCancelButton.setOnClickListener {
+
+            val transaction = parentFragmentManager.beginTransaction()
+            findNavController().navigate(R.id.action_JournalEntryFragment_to_JournalListFragment)
+            //transaction.replace(R.id.fragment_container_main_screen, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 

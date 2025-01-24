@@ -2,22 +2,12 @@ package com.example.mytestapplication2
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
-import android.widget.PopupMenu
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.mytestapplication2.databinding.ActivityMainBinding
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import saveQuotesToFile
 
@@ -46,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         // Scheduler Button
         binding.bottomAppBar.findViewById<Button>(R.id.scheduler_navBtn).setOnClickListener {
             // Define possible destination fragments
-            val destinations = listOf(R.id.CurrentDayFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+            val destinations = listOf(R.id.CurrentDayFragment, R.id.HabitzScreenFragment, R.id.JournalListFragment)
 
             // Get current destination
             val currentDestination = navController.currentDestination?.id
@@ -68,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         // Home Button
         binding.bottomAppBar.findViewById<Button>(R.id.home_navBtn).setOnClickListener {
             // Define possible destination fragments
-            val destinations = listOf(R.id.MainScreenFragment, R.id.HabitzScreenFragment, R.id.journal_fragment)
+            val destinations = listOf(R.id.MainScreenFragment, R.id.HabitzScreenFragment, R.id.JournalListFragment)
 
             // Get current destination
             val currentDestination = navController.currentDestination?.id
@@ -90,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         // Habitz Button
         binding.bottomAppBar.findViewById<Button>(R.id.habitz_navBtn).setOnClickListener {
             // Define possible destination fragments
-            val destinations = listOf(R.id.HabitzScreenFragment, R.id.CurrentDayFragment, R.id.journal_fragment)
+            val destinations = listOf(R.id.HabitzScreenFragment, R.id.CurrentDayFragment, R.id.JournalListFragment)
 
             // Get current destination
             val currentDestination = navController.currentDestination?.id
@@ -112,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         // Journal Button
         binding.bottomAppBar.findViewById<Button>(R.id.journal_navBtn).setOnClickListener {
             // Define possible destination fragments
-            val destinations = listOf(R.id.journal_fragment, R.id.HabitzScreenFragment, R.id.MainScreenFragment)
+            val destinations = listOf(R.id.JournalListFragment, R.id.HabitzScreenFragment, R.id.MainScreenFragment)
 
             // Get current destination
             val currentDestination = navController.currentDestination?.id
@@ -122,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
             // Checks to see if the fragment you are on is equal to the id of the fragment to the button you click
             // Is a guard for clicking on the button for the same fragment your on
-            if(currentDestination == R.id.journal_fragment) {
+            if(currentDestination == R.id.JournalListFragment) {
                 return@setOnClickListener
             }
             else{

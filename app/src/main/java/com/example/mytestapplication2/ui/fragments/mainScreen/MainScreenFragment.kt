@@ -14,8 +14,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
-import com.example.mytestapplication2.journal.fragments.JournalFragment
-import com.example.mytestapplication2.journal.placeholder.PlaceholderContent
+import com.example.mytestapplication2.journal.fragments.JournalListFragment
 import com.example.mytestapplication2.ui.fragments.createhabit.CreateHabitScreen
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
@@ -75,7 +74,7 @@ class MainScreenFragment : Fragment() {
                 setOnMenuItemClickListener { item ->
                     when (item.itemId) {
                         R.id.menu_item_1 -> toggleFragment(CurrentDayFragment())
-                        R.id.menu_item_2 -> toggleFragment(JournalFragment())
+                        R.id.menu_item_2 -> toggleFragment(JournalListFragment())
                         R.id.menu_item_3 -> toggleFragment(HabitzScreenFragment())
                         R.id.menu_item_4 -> toggleFragment(CreateHabitScreen())
                         else -> false
