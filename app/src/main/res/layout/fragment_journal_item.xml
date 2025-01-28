@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
         android:layout_marginVertical="10dp"
-        android:backgroundTint="#F0FFFF"
+        android:backgroundTint="#CCFBEC"
         android:clickable="true"
         android:focusable="true" app:cardElevation="4dp">
 
@@ -53,7 +53,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textAppearance="?attr/textAppearanceListItem"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/journal_item_title_TextView"
