@@ -27,6 +27,7 @@ class JournalListViewModel : ViewModel() {
         )
     }
 
+    // Function to add a journal item to the list
     fun addJournalItem(journalItem: JournalItem) {
 
         val currentList = _journalItemList.value.orEmpty().toMutableList()
