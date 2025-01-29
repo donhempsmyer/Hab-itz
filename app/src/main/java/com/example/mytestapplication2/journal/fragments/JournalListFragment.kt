@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
 import com.example.mytestapplication2.journal.data.JournalItem
-import com.example.mytestapplication2.journal.JournalAdapter
 import com.example.mytestapplication2.journal.viewModels.JournalListViewModel
 
 class JournalListFragment : Fragment() {
@@ -30,29 +29,9 @@ class JournalListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         _binding = FragmentJournalRecyclerBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        // Modify this list to pull data from user input (eventually a database)
-        //val journalItemList = ArrayList<JournalItem>()
-
-        //journalItemList.add(JournalItem(1, R.drawable.book_icon, "First Journal Entry", "01-01-2025"))
-
-        //journalAdapter = JournalAdapter { journalItem: JournalItem ->
-           // journalAdapterOnClick(journalItem)
-        //}
-
-        //journalAdapter.submitList(journalItemList)
-
-        //val recyclerView: RecyclerView = binding.journalRecycler
-        //recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //recyclerView.setHasFixedSize(true)
-
-        // Set the adapter
-        // Fix this to open JournalEntryFragment when an item is clicked
-        //recyclerView.adapter = journalAdapter
-
-
         return view
     }
 
@@ -86,11 +65,11 @@ class JournalListFragment : Fragment() {
 
     private fun journalAdapterOnClick(journalItem: JournalItem) {
         //val fragment = JournalEntryFragment()
-        val transaction = parentFragmentManager.beginTransaction()
+        //val transaction = parentFragmentManager.beginTransaction()
         findNavController().navigate(R.id.action_JournalListFragment_to_JournalEntryFragment)
         //transaction.replace(R.id.fragment_container_main_screen, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        //transaction.addToBackStack(null)
+        //transaction.commit()
     }
 
     override fun onDestroyView() {

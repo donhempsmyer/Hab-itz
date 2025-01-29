@@ -1,4 +1,4 @@
-package com.example.mytestapplication2.journal
+package com.example.mytestapplication2.journal.fragments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ class JournalAdapter(
             newJournalItem: JournalItem
         ): Boolean {
 
-            return oldJournalItem.journalId == newJournalItem.journalId
+            return oldJournalItem.itemId == newJournalItem.itemId
         }
 
         override fun areContentsTheSame(
@@ -47,10 +47,10 @@ class JournalAdapter(
             }
         }
 
-        fun bind(journalItemData: JournalItem) {
-            binding.journalItemIconImageView.setImageResource(journalItemData.journalImage)
-            binding.journalItemTitleTextView.text = journalItemData.journalTitle
-            binding.journalItemDateTextView.text = journalItemData.journalDate
+        fun bind(journalItem: JournalItem) {
+            journalItem.itemImage?.let { binding.journalItemIconImageView.setImageResource(it) }
+            binding.journalItemTitleTextView.text = journalItem.itemTitle
+            binding.journalItemDateTextView.text = journalItem.itemDate
         }
     }
 

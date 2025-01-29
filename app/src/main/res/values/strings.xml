@@ -60,6 +60,7 @@
     <string name="save_button">Save</string>
     <string name="cancel_button">Cancel</string>
     <string name="journal_entry_header">Journal Entry</string>
+    <string name="journal_fab_description">Floating button for adding a new journal entry</string>
 
 
 </resources>
