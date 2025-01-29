@@ -15,12 +15,12 @@ import androidx.fragment.app.Fragment
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 import com.example.mytestapplication2.journal.fragments.JournalFragment
-import com.example.mytestapplication2.journal.placeholder.PlaceholderContent
 import com.example.mytestapplication2.ui.fragments.createhabit.CreateHabitScreen
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 import kotlinx.serialization.json.Json
 import java.io.File
+import java.sql.Types.NULL
 
 class MainScreenFragment : Fragment() {
 
@@ -30,30 +30,67 @@ class MainScreenFragment : Fragment() {
     private val fragmentList = mutableListOf<Fragment>()
     private var currentFragmentIndex = 0
 
+//    private lateinit var changePreviewBtn: ChangePreviewBtn
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
-        val fragmentContainer = binding.fragmentContainer
+        //val fragmentContainer = binding.fragmentContainer
         val btnToggleRight: Button = binding.btnToggleRight
         val btnToggleLeft: Button = binding.btnToggleLeft
 
         // Initialize the fragment list with default fragment if empty
         if (fragmentList.isEmpty()) {
             fragmentList.add(CurrentDayFragment())
+            binding.previewPanelBtn.text = getString(R.string.schedule_preview_text)
         }
 
         // Replace the current fragment
         replaceFragment(fragmentList[currentFragmentIndex])
 
+//        // Instantiate ChangePreviewBtn
+//        changePreviewBtn = ChangePreviewBtn(requireContext(), binding, fragmentList)
+
         // Button listeners to toggle fragments
         btnToggleRight.setOnClickListener {
+
+            val currentDayFragment = fragmentList.find {it is CurrentDayFragment}
+            val currentJournalFragment = fragmentList.find {it is JournalFragment}
+            val currentHabitFragment = fragmentList.find { it is HabitzScreenFragment }
+            var process = true
+
+
+            if(currentDayFragment != null) {
+                binding.previewPanelBtn.text = getString(R.string.schedule_preview_text)
+                process = false
+            }
+            if(currentJournalFragment != null) {
+                binding.previewPanelBtn.text = getString(R.string.journal_preview_text)
+                 process = false
+            }
+            if(currentHabitFragment != null) {
+                binding.previewPanelBtn.text = getString(R.string.habits_preview_text)
+                process = false
+            }
+            if(process == true){
+                if(fragmentList.isEmpty()) {
+                    binding.previewPanelBtn.text = getString(R.string.preview_panel)
+                }
+            }
+
+
+
+//            // Calls the updater for the PreviewBtn that is in the ChangePreviewBtn Class
+//            changePreviewBtn.updatePreviewBtn()
+
             if(fragmentList.size > 0) {
                 currentFragmentIndex = (currentFragmentIndex + 1) % fragmentList.size
                 replaceFragment(fragmentList[currentFragmentIndex])
             }
+
         }
 
         btnToggleLeft.setOnClickListener {
@@ -73,18 +110,41 @@ class MainScreenFragment : Fragment() {
             val popupMenu = PopupMenu(requireContext(), binding.previewPanelBtn).apply {
                 menuInflater.inflate(R.menu.customize_preview_panel_menu, menu)
                 setOnMenuItemClickListener { item ->
-                    when (item.itemId) {
-                        R.id.menu_item_1 -> toggleFragment(CurrentDayFragment())
-                        R.id.menu_item_2 -> toggleFragment(JournalFragment())
-                        R.id.menu_item_3 -> toggleFragment(HabitzScreenFragment())
-                        R.id.menu_item_4 -> toggleFragment(CreateHabitScreen())
-                        else -> false
-                    }
+                   if(item.itemId == NULL) {
+                       //binding.previewPanelBtn.text = getString(R.string.preview_panel)
+                   }
+                    else {
+                       when (item.itemId) {
+                           R.id.menu_item_1 -> {
+                               toggleFragment(CurrentDayFragment())
+                               //binding.previewPanelBtn.text = getString(R.string.schedule_preview_text)
+
+                           }
+
+                           R.id.menu_item_2 -> {
+                               toggleFragment(JournalFragment())
+                               //binding.previewPanelBtn.text = getString(R.string.journal_preview_text)
+
+                           }
+
+                           R.id.menu_item_3 -> {
+                               toggleFragment(HabitzScreenFragment())
+                               //binding.previewPanelBtn.text = getString(R.string.habits_preview_text)
+
+                           }
+
+                           else -> false
+                       }
+                   }
                     true
                 }
             }
             popupMenu.show()
         }
+
+//        // A recall to update the preview panel W/O click on the toggleBtn this is used to hit the null statement
+//        // and change text to previewPanel when panel is empty
+//        changePreviewBtn.updatePreviewBtn()
 
         return binding.root
     }

@@ -151,6 +151,7 @@
             android:backgroundTint="@color/habits_blue"
             android:layout_width="256dp"
             android:layout_height="55dp"
+            android:textSize="20sp"
             android:id="@+id/preview_panel_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/scrollView3"

@@ -13,8 +13,8 @@
     <item
             android:id="@+id/menu_item_3"
             android:title="Habitz Screen"/>
-    <item
-            android:id="@+id/menu_item_4"
-            android:title="Create Habit"/>
+<!--    <item-->
+<!--            android:id="@+id/menu_item_4"-->
+<!--            android:title="Create Habit"/>-->
 
 </menu>
