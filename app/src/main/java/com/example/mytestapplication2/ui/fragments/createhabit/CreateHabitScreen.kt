@@ -74,7 +74,7 @@ class CreateHabitScreen : Fragment(R.layout.fragment_create_habit_screen),
             snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
             snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
             val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
-            params.setMargins(params.leftMargin, params.topMargin + 200, params.rightMargin, params.bottomMargin + 200)
+            params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + 2100)
             snackbarView.layoutParams = params
             snackbar.show()
 
