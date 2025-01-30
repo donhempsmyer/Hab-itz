@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
 import com.example.mytestapplication2.journal.data.JournalItem
-import com.example.mytestapplication2.journal.viewModels.JournalListViewModel
+import com.example.mytestapplication2.journal.viewModels.JournalViewModel
 
 class JournalListFragment : Fragment() {
 
@@ -21,7 +21,7 @@ class JournalListFragment : Fragment() {
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
-    private val listViewModel: JournalListViewModel by activityViewModels()
+    private val journalViewModel: JournalViewModel by activityViewModels()
     private lateinit var journalAdapter: JournalAdapter
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ class JournalListFragment : Fragment() {
         recyclerView.adapter = journalAdapter
 
         // Pull data from the ViewModel, observe changes, and update the adapter
-        listViewModel.journalItemList.observe(
+        journalViewModel.journalItemList.observe(
             viewLifecycleOwner,
             Observer { journalItemList ->
             journalAdapter.submitList(journalItemList)

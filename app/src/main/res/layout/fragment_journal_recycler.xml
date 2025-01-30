@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="538dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="321dp" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.877"
+            app:layout_constraintVertical_bias="0.741"
             app:maxImageSize="50dp"
             app:backgroundTint="@color/habits_green"/>
 
