@@ -27,7 +27,7 @@
     // main screen buttons
     <string name="toggle_leftBtn">toggle_Left</string>
     <string name="toggle_rightBtn">toggle_right</string>
-    <string name="preview_panel">Preview Panel</string>
+    <string name="preview_panel">Preview</string>
     //preview panel btn text
     <string name="schedule_preview_text">Schedule </string>
     <string name="journal_preview_text">Journal</string>

@@ -9,40 +9,24 @@ import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 import java.sql.Types.NULL
 
-class ChangePreviewBtn(val context: Context, val binding:FragmentMainScreenBinding, fragmentList: MutableList<Fragment>)  {
+class ChangePreviewBtn(
+    val context: Context,
+    val binding: FragmentMainScreenBinding,
+    val previewTexts: List<String>
+) {
 
-    val currentDayFragment = fragmentList.find {it is CurrentDayFragment }
-    val currentJournalFragment = fragmentList.find {it is JournalFragment }
-    val currentHabitFragment = fragmentList.find { it is HabitzScreenFragment }
-    var process = true
+    fun updatePreviewBtn(currentFragmentIndex: Int, fragmentList: MutableList<Fragment>) {
+        val currentFragment = fragmentList.getOrNull(currentFragmentIndex)
 
-    private var currentFragmentIndex = -1
-    private val previewTexts = listOf(
-        context.getString(R.string.schedule_preview_text),
-        context.getString(R.string.journal_preview_text),
-        context.getString(R.string.habits_preview_text),
-        context.getString(R.string.preview_panel)
-    )
-    private var currentTextIndex = 0
-
-   fun updatePreviewBtn() {
-       // Cycle through the preview texts based on the current fragment
-       when {
-           currentDayFragment != null -> {
-               binding.previewPanelBtn.text = previewTexts[0]
-               currentTextIndex = (currentTextIndex + 1) % previewTexts.size
-           }
-           currentJournalFragment != null -> {
-               binding.previewPanelBtn.text = previewTexts[1]
-               currentTextIndex = (currentTextIndex + 1) % previewTexts.size
-           }
-           currentHabitFragment != null -> {
-               binding.previewPanelBtn.text = previewTexts[2]
-               currentTextIndex = (currentTextIndex + 1) % previewTexts.size
-           }
-           else -> {
-               binding.previewPanelBtn.text = previewTexts[3]
-           }
-       }
+        // Update the button text based on the active fragment
+        when (currentFragment) {
+            is CurrentDayFragment -> binding.previewPanelBtn.text = previewTexts[0]
+            is JournalFragment -> binding.previewPanelBtn.text = previewTexts[1]
+            is HabitzScreenFragment -> binding.previewPanelBtn.text = previewTexts[2]
+            is PlaceholderFragment -> binding.previewPanelBtn.text = previewTexts[3]
+        }
     }
 }
+
+
+

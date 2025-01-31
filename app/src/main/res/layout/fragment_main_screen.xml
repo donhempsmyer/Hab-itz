@@ -157,7 +157,21 @@
             app:layout_constraintBottom_toTopOf="@+id/scrollView3"
             app:layout_constraintEnd_toStartOf="@+id/btnToggleRight"
             app:layout_constraintStart_toEndOf="@+id/btnToggleLeft"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+
+    <ImageView
+            android:src="@drawable/arrow_downward"
+            android:layout_width="38dp"
+            android:layout_height="28dp"
+            android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/btnToggleRight"
+            app:layout_constraintEnd_toEndOf="@+id/preview_panel_btn"
+            app:layout_constraintStart_toEndOf="@+id/btnToggleLeft"
+            app:layout_constraintHorizontal_bias="0.825"
+            app:layout_constraintVertical_bias="0.555"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
