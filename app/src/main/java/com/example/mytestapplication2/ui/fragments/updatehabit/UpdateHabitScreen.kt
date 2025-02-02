@@ -80,6 +80,15 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
 
             habitViewModel.updateHabit(habit)
 
+            val snackbar = Snackbar.make(binding.root, "Habit updated successfully!", Snackbar.LENGTH_SHORT)
+            val snackbarView = snackbar.view
+            snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
+            snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
+            val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + 2100)
+            snackbarView.layoutParams = params
+            snackbar.show()
+
             findNavController().navigate(R.id.action_updateHabitScreen_to_HabitzScreenFragment)
         } else {
             if (title.isEmpty() || description.isEmpty() || cleanDate.isEmpty() || cleanTime.isEmpty()) {
@@ -134,7 +143,7 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
         snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
         snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
         val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
-        params.setMargins(params.leftMargin, params.topMargin + 200, params.rightMargin, params.bottomMargin + 200)
+        params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + 2100)
         snackbarView.layoutParams = params
         snackbar.show()
         findNavController().navigate(R.id.action_updateHabitScreen_to_HabitzScreenFragment)
