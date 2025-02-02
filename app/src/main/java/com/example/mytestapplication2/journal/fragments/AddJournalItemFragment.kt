@@ -38,17 +38,14 @@ class AddJournalItemFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navToList = R.id.action_AddJournalItemFragment_to_JournalListFragment
-
         // Save button functionality
         binding.addItemSaveBtn.setOnClickListener {
             addJournalItemToDB()
-            findNavController().navigate(navToList)
         }
 
         // Cancel button functionality
         binding.addItemCancelBtn.setOnClickListener {
-            findNavController().navigate(navToList)
+            findNavController().navigate(R.id.action_AddJournalItemFragment_to_JournalListFragment)
         }
     }
 
@@ -73,6 +70,8 @@ class AddJournalItemFragment : Fragment() {
 
         // Add the new JournalItem to the database using the ViewModel
         journalViewModel.upsertJournalItem(item)
+
+        findNavController().navigate(R.id.action_AddJournalItemFragment_to_JournalListFragment)
 
         val snackbar = Snackbar.make(binding.root, "Journal entry created successfully!", Snackbar.LENGTH_SHORT)
         val snackbarView = snackbar.view

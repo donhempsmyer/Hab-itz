@@ -123,5 +123,4 @@ class UpdateJournalItemFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
