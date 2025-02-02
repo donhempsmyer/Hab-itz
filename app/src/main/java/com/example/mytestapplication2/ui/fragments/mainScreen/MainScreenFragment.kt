@@ -56,6 +56,9 @@ class MainScreenFragment : Fragment() {
         val btnToggleRight: Button = binding.btnToggleRight
         val btnToggleLeft: Button = binding.btnToggleLeft
 
+        // Update the preview button immediately when the fragment is loaded
+        changePreviewBtn.updatePreviewBtn(currentFragmentIndex, fragmentList)
+
         // Button listeners to toggle fragments
         btnToggleRight.setOnClickListener {
             if (fragmentList.isNotEmpty()) {

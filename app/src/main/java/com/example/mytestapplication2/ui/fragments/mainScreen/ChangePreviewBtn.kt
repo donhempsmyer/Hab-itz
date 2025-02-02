@@ -2,12 +2,10 @@ package com.example.mytestapplication2.ui.fragments.mainScreen
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
 import com.example.mytestapplication2.journal.fragments.JournalFragment
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
-import java.sql.Types.NULL
 
 class ChangePreviewBtn(
     val context: Context,
