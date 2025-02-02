@@ -38,12 +38,6 @@ class JournalListFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (journalViewModel.getJournalItemsById.value.isNullOrEmpty()) {
-            binding.journalRecyclerEmptyText.visibility = View.VISIBLE
-        } else {
-            binding.journalRecyclerEmptyText.visibility = View.GONE
-        }
-
         // Set up the adapter
         journalAdapter = JournalAdapter()
 
@@ -59,6 +53,12 @@ class JournalListFragment : Fragment() {
         journalViewModel.getJournalItemsById.observe(
             viewLifecycleOwner
         ) { journalItemList ->
+
+            if (journalItemList.isNullOrEmpty())
+                binding.journalRecyclerEmptyText.visibility = View.VISIBLE
+            else
+                binding.journalRecyclerEmptyText.visibility = View.GONE
+
             journalAdapter.submitList(journalItemList)
         }
 
