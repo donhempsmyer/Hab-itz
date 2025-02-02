@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentJournalRecyclerBinding
-import com.example.mytestapplication2.journal.data.JournalItem
 import com.example.mytestapplication2.journal.viewModels.JournalViewModel
 
 class JournalListFragment : Fragment() {

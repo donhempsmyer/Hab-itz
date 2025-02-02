@@ -4,7 +4,6 @@ import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import androidx.room.PrimaryKey
 import androidx.room.Entity
-import com.example.mytestapplication2.R
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
