@@ -39,6 +39,11 @@ class MainScreenFragment : Fragment() {
 
 
 
+//        // Initialize the fragment list with default fragment if empty
+//        if (fragmentList.isEmpty()) {
+//            fragmentList.add(CurrentDayFragment())
+//        }
+
         // Initialize preview texts
         val previewTexts = listOf(
             getString(R.string.schedule_preview_text),
