@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mytestapplication2.R
 import com.example.mytestapplication2.databinding.FragmentMainScreenBinding
-import com.example.mytestapplication2.journal.fragments.JournalFragment
+import com.example.mytestapplication2.journal.fragments.JournalListFragment
 import com.example.mytestapplication2.ui.fragments.currentDay.CurrentDayFragment
 import com.example.mytestapplication2.ui.fragments.habitlist.HabitzScreenFragment
 import kotlinx.serialization.json.Json
@@ -98,7 +98,7 @@ class MainScreenFragment : Fragment() {
                             fragmentToggleManager.toggleFragment(CurrentDayFragment())
                         }
                         R.id.menu_item_2 -> {
-                            fragmentToggleManager.toggleFragment(JournalFragment())
+                            fragmentToggleManager.toggleFragment(JournalListFragment())
                         }
                         R.id.menu_item_3 -> {
                             fragmentToggleManager.toggleFragment(HabitzScreenFragment())
