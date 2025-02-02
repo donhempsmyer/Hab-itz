@@ -9,7 +9,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/journal_recycler"
+            android:id="@+id/journal_recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             tools:context=".journal.fragments.JournalListFragment"
@@ -20,9 +20,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
     />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/journal_add_button"
+            android:id="@+id/journal_recycler_add_btn"
             android:src="@drawable/ic_add"
-            android:contentDescription="@string/journal_fab_description"
+            android:contentDescription="@string/journal_recycler_fab_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -31,8 +31,22 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="538dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="321dp" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.741"
+            app:layout_constraintVertical_bias="0.887"
             app:maxImageSize="50dp"
-            app:backgroundTint="@color/habits_green"/>
+            app:backgroundTint="@color/habits_green"
+    />
+    <TextView
+            android:id="@+id/journal_recycler_empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/journal_recycler_starting_text"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

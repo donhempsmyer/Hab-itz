@@ -51,16 +51,17 @@
     <string name="sch_btn_text">Schedule</string>
 
     // Journal strings
-    <string name="journal_item_book_icon">Journal item book icon</string>
+    <string name="journal_item_icon">Journal item book icon</string>
     <string name="journal_item_title">Journal item title</string>
-    <string name="journal_entry_hint">Enter your journal entry here</string>
-    <string name="journal_item_date">Date of entry</string>
-    <string name="journal_entry_title_hint">Enter journal entry title</string>
-    <string name="journal_entry_body_hint">Enter journal entry</string>
-    <string name="save_button">Save</string>
-    <string name="cancel_button">Cancel</string>
-    <string name="journal_entry_header">Journal Entry</string>
-    <string name="journal_fab_description">Floating button for adding a new journal entry</string>
+    <string name="journal_item_date">Created Date</string>
+    <string name="add_journal_item_title_hint">Enter the title</string>
+    <string name="add_journal_item_content_hint">Write whatever is on your mind</string>
+    <string name="add_journal_item_save_btn">Save</string>
+    <string name="add_journal_item_cancel_btn">Cancel</string>
+    <string name="add_journal_item_header">New Journal Entry</string>
+    <string name="journal_recycler_fab_description">Add a new journal entry</string>
+    <string name="update_journal_item_header">Journal Entry</string>
+    <string name="journal_recycler_starting_text">Add a journal entry to get started!</string>
 
 
 </resources>

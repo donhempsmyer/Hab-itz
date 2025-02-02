@@ -31,8 +31,7 @@ class JournalListFragment : Fragment() {
     ): View {
 
         _binding = FragmentJournalRecyclerBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(
@@ -41,35 +40,34 @@ class JournalListFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set up the adapter
-        journalAdapter = JournalAdapter { journalItem ->
-            journalAdapterOnClick(journalItem)
+        if (journalViewModel.getJournalItemsById.value.isNullOrEmpty()) {
+            binding.journalRecyclerEmptyText.visibility = View.VISIBLE
+        } else {
+            binding.journalRecyclerEmptyText.visibility = View.GONE
         }
 
+        // Set up the adapter
+        journalAdapter = JournalAdapter()
+
         // Set up the RecyclerView
-        val recyclerView: RecyclerView = binding.journalRecycler
+        val recyclerView: RecyclerView = binding.journalRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.setHasFixedSize(true)
+        //recyclerView.setHasFixedSize(true)
 
         // Connect the adapter to the RecyclerView
         recyclerView.adapter = journalAdapter
 
         // Pull data from the ViewModel, observe changes, and update the adapter
-        journalViewModel.journalItemList.observe(
-            viewLifecycleOwner,
-            Observer { journalItemList ->
+        journalViewModel.getJournalItemsById.observe(
+            viewLifecycleOwner
+        ) { journalItemList ->
             journalAdapter.submitList(journalItemList)
-            }
-        )
-    }
+        }
 
-    private fun journalAdapterOnClick(journalItem: JournalItem) {
-        //val fragment = JournalEntryFragment()
-        //val transaction = parentFragmentManager.beginTransaction()
-        findNavController().navigate(R.id.action_JournalListFragment_to_JournalEntryFragment)
-        //transaction.replace(R.id.fragment_container_main_screen, fragment)
-        //transaction.addToBackStack(null)
-        //transaction.commit()
+        // Add button functionality
+        binding.journalRecyclerAddBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_JournalListFragment_to_AddJournalItemFragment)
+        }
     }
 
     override fun onDestroyView() {

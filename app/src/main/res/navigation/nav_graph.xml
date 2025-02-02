@@ -96,31 +96,34 @@
 
         <action android:id="@+id/action_JournalListFragment_to_CurrentDayFragment"
                 app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_JournalListFragment_to_JournalEntryFragment"
-                app:destination="@id/JournalEntryFragment"/>
+        <action android:id="@+id/action_JournalListFragment_to_AddJournalItemFragment"
+                app:destination="@id/AddJournalItemFragment"/>
+        <action android:id="@+id/action_JournalListFragment_to_updateJournalItemFragment"
+                app:destination="@id/updateJournalItemFragment"/>
 
     </fragment>
 
     <fragment
-            android:id="@+id/JournalEntryFragment"
-            android:name="com.example.mytestapplication2.journal.fragments.JournalEntryFragment"
-            android:label="Entry"
-            tools:layout="@layout/fragment_journal_entry">
+            android:id="@+id/AddJournalItemFragment"
+            android:name="com.example.mytestapplication2.journal.fragments.AddJournalItemFragment"
+            android:label="add_journal_item"
+            tools:layout="@layout/fragment_add_journal_item">
 
-        <action
-                android:id="@+id/action_JournalEntryFragment_to_MainScreenFragment"
-                app:destination="@id/MainScreenFragment" />
-        <action android:id="@+id/action_JournalEntryFragment_to_MainScreenFragment2"
-                app:destination="@id/MainScreenFragment"/>
-
-        <action android:id="@+id/action_JournalEntryFragment_to_CurrentDayFragment"
-                app:destination="@id/CurrentDayFragment"/>
-        <action android:id="@+id/action_JournalEntryFragment_to_JournalListFragment"
+        <action android:id="@+id/action_AddJournalItemFragment_to_JournalListFragment"
                 app:destination="@id/JournalListFragment"/>
 
     </fragment>
 
+    <fragment android:id="@+id/updateJournalItemFragment"
+              android:name="com.example.mytestapplication2.journal.fragments.UpdateJournalItemFragment"
+              android:label="update_journal_item"
+              tools:layout="@layout/fragment_update_journal_item">
 
+        <action android:id="@+id/action_updateJournalItemFragment_to_JournalListFragment"
+                app:destination="@id/JournalListFragment"/>
+        <argument android:name="selectedJournalItem"
+                  app:argType="com.example.mytestapplication2.journal.data.JournalItem"/>
+    </fragment>
 
 
 </navigation>
