@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,6 +16,7 @@ import com.example.mytestapplication2.data.models.Habit
 import com.example.mytestapplication2.databinding.FragmentUpdateHabitScreenBinding
 import com.example.mytestapplication2.ui.viewmodels.HabitViewModel
 import com.example.mytestapplication2.utils.Calculations
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
@@ -59,6 +59,14 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
         binding.btnConfirmUpdate.setOnClickListener {
             updateHabitInDB()
         }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.btnDeleteHabit.setOnClickListener {
+            deleteHabit(args.selectedHabit)
+        }
     }
 
     private fun updateHabitInDB() {
@@ -71,6 +79,15 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
             val habit = Habit(args.selectedHabit.id, title, description, timeStamp)
 
             habitViewModel.updateHabit(habit)
+
+            val snackbar = Snackbar.make(binding.root, "Habit updated successfully!", Snackbar.LENGTH_SHORT)
+            val snackbarView = snackbar.view
+            snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
+            snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
+            val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + 2100)
+            snackbarView.layoutParams = params
+            snackbar.show()
 
             findNavController().navigate(R.id.action_updateHabitScreen_to_HabitzScreenFragment)
         } else {
@@ -121,8 +138,14 @@ class UpdateHabitScreen : Fragment(R.layout.fragment_update_habit_screen),
 
     private fun deleteHabit(habit: Habit) {
         habitViewModel.deleteHabit(habit)
-        Toast.makeText(context, "Habit successfully deleted!", Toast.LENGTH_SHORT).show()
-
+        val snackbar = Snackbar.make(binding.root, "Habit deleted successfully!", Snackbar.LENGTH_SHORT)
+        val snackbarView = snackbar.view
+        snackbar.setBackgroundTint(resources.getColor(R.color.habits_blue))
+        snackbar.setTextColor(resources.getColor(R.color.habits_green, null))
+        val params = snackbarView.layoutParams as ViewGroup.MarginLayoutParams
+        params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + 2100)
+        snackbarView.layoutParams = params
+        snackbar.show()
         findNavController().navigate(R.id.action_updateHabitScreen_to_HabitzScreenFragment)
     }
 }

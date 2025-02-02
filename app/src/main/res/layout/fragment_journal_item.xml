@@ -2,29 +2,35 @@
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/journal_item"
+        android:id="@+id/journal_item_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
         android:layout_marginVertical="10dp"
-        android:backgroundTint="#F0FFFF"
+        android:backgroundTint="#CCFBEC"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true" app:cardElevation="5dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
         <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:id="@+id/journal_item_image"
-                android:contentDescription="@string/journal_item_book_icon"
+                android:layout_width="86dp"
+                android:layout_height="85dp"
+                android:id="@+id/journal_item_icon"
+                android:contentDescription="@string/journal_item_icon"
                 android:src="@drawable/book_icon"
                 android:adjustViewBounds="true"
-                android:scaleType="fitXY"/>
-
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/journal_item_title"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,19 +38,29 @@
                 android:text="@string/journal_item_title"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                android:layout_margin="@dimen/text_margin"
-                android:textAppearance="?attr/textAppearanceListItem"/>
-
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintStart_toEndOf="@+id/journal_item_icon"
+                app:layout_constraintEnd_toStartOf="@+id/journal_item_date"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+        />
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/journal_item_date"
                 android:text="@string/journal_item_date"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:layout_margin="@dimen/text_margin"
-                android:textAppearance="?attr/textAppearanceListItem"/>
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/journal_item_title"
+                app:layout_constraintVertical_bias="0.492"
+                app:layout_constraintHorizontal_bias="0.686"
+        />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
