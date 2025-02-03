@@ -19,16 +19,17 @@ import com.example.mytestapplication2.ui.viewmodels.HabitViewModel
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.activityViewModels
 
-class HabitzScreenFragment : Fragment(R.layout.fragment_habitz_screen) {
+class HabitzScreenFragment : Fragment() {
 
     private var _binding: FragmentHabitzScreenBinding? = null
     private val binding get() = _binding!!
     private lateinit var habitList: List<Habit>
-    private lateinit var habitViewModel: HabitViewModel
+    private val habitViewModel: HabitViewModel by activityViewModels()
     private lateinit var habitAdapter: HabitAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHabitzScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,10 +40,10 @@ class HabitzScreenFragment : Fragment(R.layout.fragment_habitz_screen) {
         // Adapter
         habitAdapter = HabitAdapter()
         binding.rvHabits.adapter = habitAdapter
-        binding.rvHabits.layoutManager = LinearLayoutManager(context)
+        binding.rvHabits.layoutManager = LinearLayoutManager(requireContext())
 
         // ViewModel
-        habitViewModel = ViewModelProvider(this).get(HabitViewModel::class.java)
+        //habitViewModel = ViewModelProvider(this).get(HabitViewModel::class.java)
 
         habitViewModel.getAllHabits.observe(viewLifecycleOwner, Observer { habits ->
 
