@@ -49,7 +49,7 @@
 
 
     //bottom nav toolbar
-    <string name="note_btn_text">Notes</string>
+    <string name="note_btn_text">Journal</string>
     <string name="Home_btn_text">Home</string>
     <string name="Habitz_btn_text">Habitz</string>
     <string name="sch_btn_text">Schedule</string>
